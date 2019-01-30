@@ -14,7 +14,7 @@
 ** in the "Factorial" subfolder.                         
 ** To run this file, open up a Jess prompt 
 ** and type (batch ExpertSystems/Factorial/factorial.clp) with parentheses. 
-** Type (run) to start the program, also with parentheses. 
+** Type (runFactorial) to start the program, also with parentheses. 
 **
 **               Functions included in this file
 ** 
@@ -27,11 +27,11 @@
 **             - of a given value (assuming it is a non-negative number)
 **	       - if this is not the case, the function alerts the user that
 **	       - they passed in bad input to the function
-** run	       - manages and executes the 4 functions above by calling them
+** runFactorial- manages and executes the 4 functions above by calling them
 **             - in order, effectively driving the execution of this file.
 **
 **               The following functions are provided in the "utilities.clp" file 
-**               in the ExpertSystems subfolder in the Jess71p1 directory.                       **
+**               in the ExpertSystems subfolder in the Jess71p1 directory.                       
 ** print       - prints any argument
 ** printline   - print followed by a newline
 ** ask         - prompt the user and read back a token
@@ -47,16 +47,16 @@
 (batch ExpertSystems/utilities.clp) 
 (printline "")                      
 (printline "Factorial File Loaded!") 
-(printline "Type (run) with parentheses in the next Jess prompt to run the factorial program.")
+(printline "Type (runFactorial) with parentheses in the next Jess prompt to run the factorial program.")
 
 /*
 ** Function that computes the factorial of the given input. Alerts the user if bad
 ** input is received. 
-** Bad input is defined as input which is either not a number, or
-** a number which is negative.
+** Bad input is defined as input which is either not a number,
+** a number which is negative, or a number which is not an integer.
 **
-** Precondition: The number provided by the user must be non negative, or
-**  	  	 greater than or equal to 0.
+** Precondition: The number provided by the user must be a non negative integer, 
+**  	  	 meaning that it must be greater than or equal to 0.
 ** Argument:     A number provided by the user.
 ** 
 */
@@ -116,9 +116,9 @@
 */
 (deffunction factorial (?n)
    (if (not (isNumber ?n)) then 
-       (bind  ?answer "Enter an actual number please!")
+       (bind  ?answer "Enter an actual number please! Type (runFactorial) to try again.")
     elif (not (isNonNegativeNumber ?n)) then
-       (bind  ?answer "Number must be positive!")
+       (bind  ?answer "Number must be positive! Type (runFactorial) to try again.")
     else
        (bind ?nLong ?n)
        (if (not (longp ?nLong)) then
@@ -135,7 +135,7 @@
 ** weeds out bad input (values which are either not numbers or nonnegative numbers) to
 ** ensure that the program can accept any value from the user without crashing.
 */
-(deffunction run () 
+(deffunction runFactorial () 
    (printline "")
 
    (printline "************************")
@@ -145,6 +145,7 @@
    (printline "Please note that floating point numbers will be truncated into integers.") 
    (printline "For example: 15.45 will be interpreted as 15.")
    (printline (factorial (ask "Which number would you like to know the factorial of: ")))
+   (return)
 )
 
 
