@@ -50,11 +50,13 @@
 (printline "Type (run) with parentheses in the next Jess prompt to run the factorial program.")
 
 /*
-** Function that computes the factorial of the given input. Alerts the user if bad input ** is received. Bad input is defined as input which is either not a number, or
+** Function that computes the factorial of the given input. Alerts the user if bad
+** input is received. 
+** Bad input is defined as input which is either not a number, or
 ** a number which is negative.
 **
 ** Precondition: The number provided by the user must be non negative, or
-**.  	  	 greater than or equal to 0.
+**  	  	 greater than or equal to 0.
 ** Argument:     A number provided by the user.
 ** 
 */
