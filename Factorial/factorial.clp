@@ -8,30 +8,36 @@
 ** The factorial class provides functions to
 ** calculate and report the value of the factorial
 ** of a user generated number while detecting wrong
-** input and reporting it to the user. In order to
-** run the file, create a separate folder called "ExpertSystems"
+** input and reporting it to the user. This program
+** only accepts non negative integers. If a negative number
+** or an unknown token (such as a string) is entered
+** into this program, a message will appear, alerting the user
+** of their mistake. If a floating point number is entered, then
+** the truncated integer of that number will be used to calculate
+** the factorial. This will be noted in the user interface. In order to
+** execute this program, create a separate folder called "ExpertSystems"
 ** and then add another subfolder titled "Factorial". Insert this file,
-** in the "Factorial" subfolder.                         
-** To run this file, open up a Jess prompt 
+** in the "Factorial" subfolder. To load this file, open up a Jess prompt 
 ** and type (batch ExpertSystems/Factorial/factorial.clp) with parentheses. 
 ** Type (runFactorial) to start the program, also with parentheses. 
 **
 **               Functions included in this file
 ** 
-** fact        - returns the factorial of a given value
-**	       - checks for bad data from the user and 
-**	       - reports it back to the user
-** isNumber    - checks wether or not a given value is a number
-** isNonNegative - checks whether or not a given value is non-negative
-** factorial   - calls on the fact function to calculate the factorial
-**             - of a given value (assuming it is a non-negative number)
-**	       - if this is not the case, the function alerts the user that
-**	       - they passed in bad input to the function
-** runFactorial- manages and executes the 4 functions above by calling them
-**             - in order, effectively driving the execution of this file.
+** fact         - returns the factorial of a given value
+**	        - checks for bad data from the user and 
+**	        - reports it back to the user
+** isNumber     - checks wether or not a given value is a number
+** isNonNegative- checks whether or not a given value is non-negative
+** factorial    - calls on the fact function to calculate the factorial
+**              - of a given value (assuming it is a non-negative number)
+**	        - if this is not the case, the function alerts the user that
+**	        - they passed in bad input to the function
+** runFactorial - manages and executes the 4 functions above by calling them
+**              - in order, effectively driving the execution of this file.
 **
 **               The following functions are provided in the "utilities.clp" file 
-**               in the ExpertSystems subfolder in the Jess71p1 directory.                       
+**               in the ExpertSystems subfolder in the Jess71p1 directory.    
+**                   
 ** print       - prints any argument
 ** printline   - print followed by a newline
 ** ask         - prompt the user and read back a token
@@ -39,7 +45,6 @@
 ** askQuestion - adds a question mark to the prompt used in ask
 ** 
 */
-
 
 ; Loads the "utilities.clp" file and confirms that the factorial file has been loaded.
 ; Also informs the user how to start the program.
@@ -58,7 +63,7 @@
 ** Precondition: The number provided by the user must be a non negative integer, 
 **  	  	 meaning that it must be greater than or equal to 0.
 ** Argument:     A number provided by the user.
-** 
+** Returns:      The factorial of the integer inserted by the user.
 */
 (deffunction fact (?n)
    
@@ -102,7 +107,6 @@
    (return ?answer)
 )
 
-
 /*
 ** Function for the factorial calculation which which checks the validity of the user's
 ** input and either calculates the factorial, or alerts the user
@@ -129,11 +133,14 @@
    
    (return ?answer)
 )
+
 /*
 ** Driver function for the factorial operation. Presents the user with an interactive
 ** user interface while taking in a value to calculate the factorial for. The function
 ** weeds out bad input (values which are either not numbers or nonnegative numbers) to
 ** ensure that the program can accept any value from the user without crashing.
+**
+** Returns: void
 */
 (deffunction runFactorial () 
    (printline "")
