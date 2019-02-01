@@ -51,3 +51,34 @@
    (print ?arg)
    (return (ask "? "))
 )
+
+/*
+** Partially checks whether a given input is valid. 
+** Specifically, it checks whether the input is a number or not.
+**
+** Argument: The user's input token.
+** Returns:  TRUE if the input token is a number; otherwise,
+             FALSE
+*/
+(deffunction isNumber (?n)
+   (return (numberp ?n))
+)
+
+/*
+** Partially checks whether a given input is valid. 
+** Specifically, it checks whether the input is a non negative number or not.
+** A non negative number is a number greater than or equal to 0.
+**
+** Precondition: The given input is a number.
+** Argument:     A number provided by the user.
+** Returns:      TRUE if the number is non negative; otherwise,
+**               FALSE.
+*/
+(deffunction isNonNegativeNumber (?n)
+   (if (< ?n 0) then
+       (bind ?answer FALSE)
+    else 
+       (bind ?answer TRUE)
+   )
+   (return ?answer)
+)

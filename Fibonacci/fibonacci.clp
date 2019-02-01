@@ -111,6 +111,7 @@
 (deffunction isValid (?input)
    return(and (isNumber ?input) (isNonNegativeNumber ?input))
 )
+
 /*
 ** Partially checks whether a given input is valid. 
 ** Specifically, it checks whether the input is a number or not.
