@@ -35,7 +35,7 @@
 ** runFactorial - manages and executes the 4 functions above by calling them
 **              - in order, effectively driving the execution of this file.
 **
-**               The following functions are provided in the "utilities.clp" file 
+**               The following functions are provided in the "toolbox.clp" file 
 **               in the ExpertSystems subfolder in the Jess71p1 directory.    
 **                   
 ** print       - prints any argument
@@ -46,10 +46,10 @@
 ** 
 */
 
-; Loads the "utilities.clp" file and confirms that the factorial file has been loaded.
+; Loads the "toolbox.clp" file and confirms that the factorial file has been loaded.
 ; Also informs the user how to start the program.
 
-(batch ExpertSystems/utilities.clp) 
+(batch ExpertSystems/toolbox.clp) 
 (printline "")                      
 (printline "Factorial File Loaded!") 
 (printline "Type (runFactorial) with parentheses in the next Jess prompt to run the factorial program.")
