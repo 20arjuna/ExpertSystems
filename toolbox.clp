@@ -85,3 +85,15 @@
    )
    (return ?answer)
 )
+/*
+** Helper function for the fibo function. This function adds a given
+** value to the end of a given list and returns the list. 
+**
+** Argument: A list
+** Argument: A value
+** Returns:  The given list with the given value appended to list's end
+**
+*/
+(deffunction appendToList (?list ?val)
+   (return (insert$ ?list (+(length$ ?list) 1) ?val))
+)

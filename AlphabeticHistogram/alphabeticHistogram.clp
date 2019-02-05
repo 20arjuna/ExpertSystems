@@ -58,4 +58,16 @@
 (batch ExpertSystems/toolbox.clp) 
 
 (deffunction slice$ (?string)
+   (bind ?string (explode$ ?string))
+   (bind ?answer (create$))
+
+   (for (bind ?i 0) (< ?i (length$ ?string)) (++ ?i)
+      (for (bind ?j 0) (< ?j (length$ (nth$ ?i ?string))) (++ ?j)
+         (bind ?val (nth$ ?j (nth$ ?i ?string)))
+         (appendToList ?answer ?val)
+      )
+   )
+   (return ?answer)
+) 
+      
    
