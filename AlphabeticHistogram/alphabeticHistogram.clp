@@ -57,14 +57,15 @@
 
 (batch ExpertSystems/toolbox.clp)
 
-(deffunction slice$ (?string)
-   (bind ?stringList (explode$ ?string))
+(deffunction slice$ (?n)
+   (bind ?stringList (explode$ ?n))
    (bind ?answer (create$))
-   (foreach ?i ?stringList
-      (foreach ?j (nth$ ?i ?stringList)
-         (appendToList ?answer (sub-string ?j ?j (nth$ ?i ?stringList)))
+   (foreach ?string ?stringList
+      (for (bind ?index 1) (<= ?index (str-length ?string)) (++ ?index)
+         (bind ?answer (create$ ?answer (explode$ (sub-string ?index ?index ?string))))
       )
    )
+
 
   (return ?answer)
 )
