@@ -49,14 +49,14 @@
 
 /*
 ** Appends a question mark to the prompt of the ask function
-*/ 
+*/
 (deffunction askQuestion (?arg)
    (print ?arg)
    (return (ask "? "))
 )
 
 /*
-** Partially checks whether a given input is valid. 
+** Partially checks whether a given input is valid.
 ** Specifically, it checks whether the input is a number or not.
 **
 ** Argument: The user's input token.
@@ -68,7 +68,7 @@
 )
 
 /*
-** Partially checks whether a given input is valid. 
+** Partially checks whether a given input is valid.
 ** Specifically, it checks whether the input is a non negative number or not.
 ** A non negative number is a number greater than or equal to 0.
 **
@@ -80,14 +80,14 @@
 (deffunction isNonNegativeNumber (?n)
    (if (< ?n 0) then
        (bind ?answer FALSE)
-    else 
+    else
        (bind ?answer TRUE)
    )
    (return ?answer)
 )
 /*
 ** Helper function for the fibo function. This function adds a given
-** value to the end of a given list and returns the list. 
+** value to the end of a given list and returns the list.
 **
 ** Argument: A list
 ** Argument: A value
@@ -95,5 +95,5 @@
 **
 */
 (deffunction appendToList (?list ?val)
-   (return (insert$ ?list (+(length$ ?list) 1) ?val))
+   (return (create$ ?list ?val))
 )

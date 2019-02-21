@@ -97,7 +97,7 @@
 **
 */
 (deffunction appendToList (?list ?val)
-   (return (insert$ ?list (+(length$ ?list) 1) ?val))
+   (return (insert$ ?list (+(length$ ?list) (+(length$ ?list) 1) ?val)))
 )
 
 /*
