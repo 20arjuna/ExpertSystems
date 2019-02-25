@@ -11,7 +11,7 @@
 ** input (numbers which are either negative or not numbers)
 ** and reporting it to the user. In order to
 ** run the file, create a separate folder called "ExpertSystems"
-** and then add another subfolder titled "Fibonacci". Insert this file,
+** and  add another subfolder titled "Fibonacci". Insert this file,
 ** in the "Fibonacci" subfolder which has just been created.
 ** To run this file, open up a Jess prompt
 ** and type (batch ExpertSystems/Fibonacci/fibonacci.clp) with parentheses.
@@ -79,26 +79,29 @@
    (bind ?letterLength 26)
    (bind ?ascii_base 97)
    (for (bind ?i 1) (<= ?i ?letterLength) (++ ?i)
-      (bind ?nums (create$ ?nums ascii_num))
-      (++ ?ascii_num)
+      (bind ?nums (create$ ?nums ?ascii_base))
+      (++ ?ascii_base)
    )
    (bind ?input (slice$ ?input))
    (for (bind ?j 1) (<= ?j (length$ ?input)) (++ ?j)
-      (bind ?ascii (create$ ?ascii (asc (nth$ ?j letters))))
+      (bind ?ascii (create$ ?ascii (asc (nth$ ?j ?letters))))
    )
    (bind ?answerValue "")
    (for (bind ?i 1) (<= ?i (length$ ?nums)) (++ ?i)
       (bind ?count 0)
-      (bind ?letter)
-      (for (bind ?j 1) (<= >j (length$ ?ascii)) (++ ?j)
-         (bind ?letter (nth$ ?i ?nums))
-         (if (== (str-compare (nth$ ?z ?ascii) (nth$ ?i ?nums)) 0) then
+      (bind ?temp 0)
+      (for (bind ?j 1) (<= ?j (length$ ?ascii)) (++ ?j)
+         (bind ?temp (nth$ ?i ?nums))
+         (if (= (str-compare (nth$ ?j ?ascii) (nth$ ?i ?nums)) 0) then
             (++ ?count)
          )
       )
+      printline
+      (bind ?answerValue (str-cat (toChar ?temp) " " (explode$ ?count) ?newline))
+      (printline ?answerValue)
    )
-   (bind ?answerValue (str-cat (toChar ?letter) (" ") (explode$ ?count) (?newline)))
-   (return ?answerValue)
+
+   (return)
 
 )
 (deffunction runAlphHist ()
