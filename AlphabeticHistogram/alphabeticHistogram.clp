@@ -70,9 +70,22 @@
 
 (deffunction hist (?input)
    (bind ?input (lowcase ?input))
+
    (bind ?letters (slice$ ?input))
    (bind ?ascii (create$))
    (bind ?nums (create$))
+
+   (bind ?letterLength 26)
+   (bind ?ascii_base 97)
+   (for (bind ?i 1) (<= ?i ?letterLength) (++ ?i)
+      (bind ?nums (create$ ?nums ascii_num))
+      (++ ?ascii_num)
+   )
+   (bind ?input (slice$ ?input))
+   (for (bind ?j 1) (<= ?j (length$ ?input)) (++ ?j)
+      (bind ?ascii (create$ ?ascii (asc (nth$ ?j letters))))
+   )
+   
 )
 (deffunction runAlphHist ()
    (printline "")
