@@ -23,7 +23,7 @@
 **	        - checks for bad data from the user and
 **	        - reports it back to the user
 ** appendToList - Appends a given value to the end of a given list
-** isValid      - Combines the two below methods to check if a token
+** isValid      - Combines the two below functions to check if a token
 **              - is a non negative number
 ** isNumber     - checks wether or not a given value is a number
 ** isNonNegative- checks whether or not a given value is non-negative
@@ -39,7 +39,7 @@
 **              - return the given amount of fibonacci numbers
 ** runFibo      - Driver function for the entire file. This function prints to the console
 **              - and prompts the user for input while warning them to input only
-**              - non negative numbers. runFibo calls on the previous methods to validate
+**              - non negative numbers. runFibo calls on the previous functions to validate
 **              - the input and generate the given amount of fibonacci numbers.
 **              - in order, effectively driving the execution of this file.
 **
@@ -65,6 +65,7 @@
 ** Precondition: An input must be passed.
 ** Argument:     A token provided by the user.
 ** Returns:      A list of tokens which make up the input token.
+/*
 (deffunction slice$ (?n)
    (bind ?stringList (explode$ ?n))
    (bind ?answer (create$))
@@ -75,7 +76,14 @@
    )
   (return ?answer)
 )
-
+/*
+** The main function of the file, the hist function outputs
+** the alphabetic histogram of a given input string. The function
+** prints out each letter in the alphabet along with the number of
+** times it appears in the input token.
+**
+** Argument: An input token provided by the user.
+/*
 (deffunction hist (?input)
    (bind ?input (lowcase ?input))
    (bind ?newline "
@@ -110,10 +118,18 @@
    (return)
 )
 
+/*
+** This function interacts with the user by prompting
+** them for a string to analyze. The function accepts
+** all forms of input but only analyzes letters. This
+** function is the driver function for the entire file.
+/*
 (deffunction runAlphHist ()
    (printline "")
    (printline "***************************")
    (printline "Run Alphabetic Histogram")
    (printline "***************************")
+   (printline "Only letters will be analyzed, not nubmers of characters")
    (hist (ask "Enter a string to analyze: "))
+   (return)
 )
