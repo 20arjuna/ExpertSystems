@@ -23,7 +23,7 @@
 ** runAlphHist - Interacts with the user and gets the input value for
 **             - the hist function
 
-*************   The following functions are provided in the "toolbox.clp" file **********
+**               The following functions are provided in the "toolbox.clp" file **********
 **               in the ExpertSystems subfolder in the Jess71p1 directory.
 **
 ** print       - prints any argument
