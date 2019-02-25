@@ -70,7 +70,8 @@
 
 (deffunction hist (?input)
    (bind ?input (lowcase ?input))
-
+   (bind ?newline "
+   ")
    (bind ?letters (slice$ ?input))
    (bind ?ascii (create$))
    (bind ?nums (create$))
@@ -88,12 +89,17 @@
    (bind ?answerValue "")
    (for (bind ?i 1) (<= ?i (length$ ?nums)) (++ ?i)
       (bind ?count 0)
-      (bind ?letter 0)
+      (bind ?letter)
       (for (bind ?j 1) (<= >j (length$ ?ascii)) (++ ?j)
-         (bind ?letter )
+         (bind ?letter (nth$ ?i ?nums))
+         (if (str-compare (nth$ ?z ?ascii) (nth$ ?i ?nums))
+            (++ ?count)
+         )
       )
-
    )
+   (bind ?answerValue (str-cat (toChar ?letter) (" ") (explode$ ?count) (?newline)))
+   (return ?answerValue)
+
 )
 (deffunction runAlphHist ()
    (printline "")
