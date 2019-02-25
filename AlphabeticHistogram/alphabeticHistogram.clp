@@ -85,7 +85,15 @@
    (for (bind ?j 1) (<= ?j (length$ ?input)) (++ ?j)
       (bind ?ascii (create$ ?ascii (asc (nth$ ?j letters))))
    )
-   
+   (bind ?answerValue "")
+   (for (bind ?i 1) (<= ?i (length$ ?nums)) (++ ?i)
+      (bind ?count 0)
+      (bind ?letter 0)
+      (for (bind ?j 1) (<= >j (length$ ?ascii)) (++ ?j)
+         (bind ?letter )
+      )
+
+   )
 )
 (deffunction runAlphHist ()
    (printline "")
