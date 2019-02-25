@@ -68,6 +68,13 @@
   (return ?answer)
 )
 
-(deffunction displayOutput
+(deffunction hist (?input)
    
+)
+(deffunction runAlphHist ()
+   (printline "")
+   (printline "***************************")
+   (printline "Run Alphabetic Histogram")
+   (printline "***************************")
+   (printline (hist (ask "Enter a string to analyze: ")))
 )
