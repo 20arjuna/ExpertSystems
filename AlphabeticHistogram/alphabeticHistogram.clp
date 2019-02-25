@@ -69,7 +69,10 @@
 )
 
 (deffunction hist (?input)
-   
+   (bind ?input (lowcase ?input))
+   (bind ?letters (slice$ ?input))
+   (bind ?ascii (create$))
+   (bind ?nums (create$))
 )
 (deffunction runAlphHist ()
    (printline "")
