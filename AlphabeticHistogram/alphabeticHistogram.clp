@@ -68,18 +68,6 @@
   (return ?answer)
 )
 
-(deffunction displayOutput (?input)
-   (if (= ?input "") then
-      (printline "Enter Something!")
-      (return)
-   )
-   (bind ?input (lowcase ?input))
-   (bind ?letters (create$))
-   (bind ?ascii (create$))
-   (bind ?nums (create$))
-   (bind ?x 97)
-   (for (bind ?i 1) (<= ?i (26)) (++ ?i)
-      (appendToList)
-   )
-
+(deffunction displayOutput
+   
 )

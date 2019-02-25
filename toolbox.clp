@@ -12,6 +12,10 @@
 ** ask         - prompt the user and read back a token
 ** askline     - prompt the user and read back a line of text (a string)
 ** askQuestion - adds a question mark to the prompt used in ask
+** toChar      - given an ASCII integer value, returns the ASCII character as a string
+** boolp       - Test for boolean type
+** xor         - Exclusive-OR for two boolean values
+
 */
 
 /*
@@ -96,4 +100,28 @@
 */
 (deffunction appendToList (?list ?val)
    (return (create$ ?list ?val))
+)
+/*
+** This function returns the character given a number.
+** The format function is just printf() in C, but unlike printout this function returns the output,
+** so if you use a nil router you don't get a printout, just the return value. A thanks goes to Henry W. for finding this out.
+*/
+(deffunction toChar (?ascii)
+   (return (format nil "%c" (integer ?ascii)))
+)
+
+/*
+** Tests is the argument is a boolean, which can only take on the value of TRUE and FALSE
+*/
+(deffunction boolp (?x)
+   (return (or (eq ?x TRUE) (eq ?x FALSE)))
+)
+
+/*
+** Simple exclusive-or function
+**
+** Function assumes values are either TRUE or FALSE
+*/
+(deffunction xor (?a ?b)
+   (return (and (or ?a ?b) (not (and ?a ?b))))
 )
