@@ -92,7 +92,7 @@
       (bind ?letter)
       (for (bind ?j 1) (<= >j (length$ ?ascii)) (++ ?j)
          (bind ?letter (nth$ ?i ?nums))
-         (if (str-compare (nth$ ?z ?ascii) (nth$ ?i ?nums))
+         (if (== (str-compare (nth$ ?z ?ascii) (nth$ ?i ?nums)) 0) then
             (++ ?count)
          )
       )
