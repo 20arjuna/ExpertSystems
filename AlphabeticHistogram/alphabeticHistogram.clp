@@ -57,6 +57,14 @@
 
 (batch ExpertSystems/toolbox.clp)
 
+/*
+** The slice$ function takes in a token and outputs
+** a list of the tokenized characters which make up the
+** token.
+**
+** Precondition: An input must be passed.
+** Argument:     A token provided by the user.
+** Returns:      A list of tokens which make up the input token.
 (deffunction slice$ (?n)
    (bind ?stringList (explode$ ?n))
    (bind ?answer (create$))
@@ -96,18 +104,16 @@
             (++ ?count)
          )
       )
-      printline
       (bind ?answerValue (str-cat (toChar ?temp) " " (explode$ ?count) ?newline))
       (printline ?answerValue)
    )
-
    (return)
-
 )
+
 (deffunction runAlphHist ()
    (printline "")
    (printline "***************************")
    (printline "Run Alphabetic Histogram")
    (printline "***************************")
-   (printline (hist (ask "Enter a string to analyze: ")))
+   (hist (ask "Enter a string to analyze: "))
 )
