@@ -83,7 +83,7 @@
       (++ ?ascii_base)
    )
    (bind ?input (slice$ ?input))
-   (for (bind ?j 1) (<= ?j (length$ ?input)) (++ ?j)
+   (for (bind ?j 1) (<= ?j (-(length$ ?input) 1) (++ ?j)
       (bind ?ascii (create$ ?ascii (asc (nth$ ?j ?letters))))
    )
    (bind ?answerValue "")
