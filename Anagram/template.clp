@@ -20,4 +20,4 @@
    (printout t ?l1 ?l2 " ")
 )
 
-(defrule rule-3 "")
+(defrule rule-3 "Enumerate pairs of )
