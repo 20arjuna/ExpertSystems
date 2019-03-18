@@ -19,5 +19,3 @@
    (printout t "Rule#2")
    (printout t ?l1 ?l2 " ")
 )
-
-(defrule rule-3 "Enumerate pairs of )

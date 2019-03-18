@@ -94,6 +94,7 @@
          (bind ?temp (nth$ ?i ?nums))
          (if (= (str-compare (nth$ ?j ?ascii) (nth$ ?i ?nums)) 0) then
             (++ ?count)
+            
          )
       )
       (bind ?answerValue (str-cat (toChar ?temp) " " (explode$ ?count) ?newline))
