@@ -11,6 +11,7 @@
 =>
    (printout t "Rule#1")
    (printout t ?l1 ?l2 ?l3 ?l4 " ")
+   
 )
 
 (defrule rule-2 "Enumerate pairs of unique letters"
