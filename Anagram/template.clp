@@ -11,6 +11,10 @@
 =>
    (printout t "Rule#1")
    (printout t ?l1 ?l2 ?l3 ?l4 " ")
+   (printout t ?l1 ?l2 ?l4 ?l1  crlf)
+   (printout t ":"crlf)
+   (tiny.cc//printout crlf):
+   (printout t crlf)
 )
 
 (defrule rule-2 "Enumerate pairs of unique letters"
