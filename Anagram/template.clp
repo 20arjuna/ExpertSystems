@@ -20,3 +20,15 @@
    (printout t ?l1 ?l2 " ")
    (printout t "Rule #2 ")
 )
+
+(deffunction assertLetter (?letter ?position)
+   (assert (Letter (c ?letter)(p ?position)))
+)
+
+(deffunction assertLetterList (?letterList)
+   (bind ?position 1)
+   (foreach ?letter ?letterList
+      (assertLetter ?letter ?position)
+      (++ ?position)
+   )
+)
