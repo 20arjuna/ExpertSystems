@@ -5,26 +5,27 @@
 ** Author(s): Arjun Akkiraju,
 **            with assistance from: Dr. Eric R. Nelson
 **
-** The alphabeticHistogram file analyzes text by providing
-** the number of times each character apperas. The output
-** is represented in a histogram. In order to
+** The anagram file generates anagrams based on a word inputted by the user. All outputs
+** are printed to the console on seperate files. In order to
 ** run the file, create a separate folder called "ExpertSystems"
-** and  add another subfolder titled "AlphabeticHistogram". Insert this file,
-** in the "AlphabeticHistogram" subfolder which has just been created.
+** and  add another subfolder titled "Anagrams". Insert this file,
+** in the "Anagrams" subfolder which has just been created.
 ** To run this file, open up a Jess prompt
-** and type (batch ExpertSystems/AlphabeticHistogram/alphabeticHistogram.clp)
-** with parentheses. Type (runAlphHist) to start the program, also with parentheses.
+** and type (batch ExpertSystems/Anagram/anagram.clp)
+** with parentheses. Type (runAnagram) to start the program, also with parentheses.
 **
 **               Functions included in this file
 **
-** slice$      - Slices the input token into a tokenized list
-** hist        - Ouptuts a histogram with the data for the amount of
-**             - times each character appears
-** runAlphHist - Interacts with the user and gets the input value for
-**             - the hist function
+** slice$          - Slices the input token into a tokenized list.
+** isLessThan      - Determines if a word's length is <= to a given length.
+** getInput        - Gets user's input which they want to get anagrams of.
+** assertLetter    - Asserts a letter into the machine's working memory.
+** assertLetterList- Iterates through a list of letters and asserts each one
+**                 - using the assertLetter function.
+** 
 
 **               The following functions are provided in the "toolbox.clp" file **********
-**               in the ExpertSystems subfolder in the Jess71p1 directory.
+**               in the ExpertSystems subfolder in the Jess71p1 directory.      **********
 **
 ** print       - prints any argument
 ** printline   - print followed by a newline
@@ -41,7 +42,8 @@
 
 (batch ExpertSystems/toolbox.clp)
 
-(defglobal ?*MAX_LETTERS* = 9)
+(defglobal ?*MAX_LETTERS* = 9) ;found by creating anagrams of increasing lengths
+                               ;until system crashes
 
 /*
 * A template for adding letters into the mahine's working memeory.
@@ -74,6 +76,18 @@
 )
 
 /*
+* Determines whether or not a certain word's length is less than a certain length.
+*
+* Argument: word        The word
+* Argument: length      The length the word is being compared to.
+* Returns:              True if the word's length <= the given length; otherwise,
+*                       False
+*/
+(deffunction isLessThan (?word ?length)
+   (return (<= (str-length ?word) ?length))
+)
+
+/*
 * Prompts the user for a word while checking if the
 * length of the user's input is less than or equal to the MAX_LETTERS constant.
 * The function uses a while-loop to keep prompting the user until a valid
@@ -95,18 +109,6 @@
    )
    (return ?word)
 
-)
-
-/*
-* Determines whether or not a certain word's length is less than a certain length.
-*
-* Argument: word        The word
-* Argument: length      The length the word is being compared to.
-* Returns:              True if the word's length <= the given length; otherwise,
-*                       False
-*/
-(deffunction isLessThan (?word ?length)
-   (return (<= (str-length ?word) ?length))
 )
 
 /*
@@ -153,76 +155,60 @@
 */
 (deffunction createRule (?letNums)
 
-   ;Used to separate words when they are printed out
    (bind ?space " ")
-
    (bind ?rule "(defrule createAnagram")
 
-   ;Left-Hand Side
-
-   ;Checks for an appropriate number of letters, each with a unique position
+   /*LHS*/
    (for (bind ?i 1) (<= ?i ?letNums) (++ ?i)
-
       (bind ?rule (str-cat ?rule " (Letter (c ?l" ?i ") "))
-
       (bind ?rule (str-cat ?rule "(p ?p" ?i))
 
-      ;Ensures that positions are not repeated
       (for (bind ?j 1) (< ?j ?i) (++ ?j)
-
          (bind ?rule (str-cat ?rule "&~?p" ?j))
       )
       (bind ?rule (str-cat ?rule ")) "))
 
    )
-
-   ;Right-Hand Side
+   /*RHS*/
 
    (bind ?rule (str-cat ?rule "=> (printout t "))
-
-   ;Adds letters to the print statement
    (for (bind ?k 1) (<= ?k ?letNums) (++ ?k)
-
       (bind ?rule (str-cat ?rule "?l" ?k " "))
-
    )
 
-   ;Makes each word go on a new line
    (bind ?rule (str-cat ?rule "crlf))" ))
 
 
    (build ?rule)
    (return ?rule)
 
-) ;deffunction createRule (?numLetters)
+)
 
 /*
-* This function starts by using the reset function to delete all
-* existing facts to ensure that only anagrams of the users's input
-* are generated. It then prompts the user for a String of text with
-* 9 or fewer letters and checks the input using the anagramInput function.
-* Once a valid input is obtained, the slice$ function converts the
-* String into a list of characters which is then used by the assertList
-* function to dynamically add facts containing the individual
-* characters and their positions in the String to the working memory.
-* The createRule function dynamically creates a rule that, when
-* executed, generates anagrams of a word with a given length. The run
-* function then starts the process of pattern matching and execution.
-* All possible anagrams of the user's input are printed out, each one
-* on a new line.
+* The driver function for the anagram file.
+* runAnagram calls Jess's reset function first to remove
+* existing facts so that only user-inputted anagrams are generated.
+* It then prompts the user for a String of text with
+* 9 or fewer letters (since that is the max amount of letters the system can handle)
+* and validates the input using the getInput function.
+* Once a valid input is entered by the user, the slice$ function converts the
+* string into a list of characters, excluding whitespace, which is fed into the assertLetterList
+* function, as it dynamically adds facts containing the individual
+* characters and their positions in the String to the machine's memory.
+* The createRule function dynamically creates a rule that creates anagrams
+* of a certain word and length. The run
+* function is the last function called before return, and it starts up the rule engine.
+* When the rule engine starts, process of matching the fact patterns to the rule patterns
+* begins and rules are fired based on the facts which have been asserted.
 */
 (deffunction runAnagram ()
-
    (reset)
-
-   (bind ?len (str-length ?word))
+   (bind ?length (str-length ?word))
 
    (assertLetterList (slice$ (anagramInput)))
-
-   (createRule ?len)
+   (createRule ?length)
 
    (run)
-
    (return)
 
 )
