@@ -1,6 +1,6 @@
 /*
-** Created: February 10, 2019
-** Last Modified: February 25, 2019
+** Created: February 25, 2019
+** Last Modified: April 9, 2019
 **
 ** Author(s): Arjun Akkiraju,
 **            with assistance from: Dr. Eric R. Nelson
@@ -14,7 +14,7 @@
 ** and type (batch ExpertSystems/Anagram/anagram.clp)
 ** with parentheses. Type (runAnagram) to start the program, also with parentheses.
 **
-**               Functions included in this file
+**                   Functions included in this file
 **
 ** slice$          - Slices the input token into a tokenized list.
 ** isLessThan      - Determines if a word's length is <= to a given length.
@@ -22,19 +22,21 @@
 ** assertLetter    - Asserts a letter into the machine's working memory.
 ** assertLetterList- Iterates through a list of letters and asserts each one
 **                 - using the assertLetter function.
-** 
-
-**               The following functions are provided in the "toolbox.clp" file **********
-**               in the ExpertSystems subfolder in the Jess71p1 directory.      **********
+** createRule      - Dynamically creates a rule which prints out anagrams based on
+**                 - the user's input.
+** runAnagram      - Driver function for entire anagram file
 **
-** print       - prints any argument
-** printline   - print followed by a newline
-** ask         - prompt the user and read back a token
-** askline     - prompt the user and read back a line of text (a string)
-** askQuestion - adds a question mark to the prompt used in ask
-** toChar      - given an ASCII integer value, returns the ASCII character as a string
-** boolp       - Test for boolean type
-** xor         - Exclusive-OR for two boolean values
+**                   The following functions are provided in the "toolbox.clp" file **********
+**                   in the ExpertSystems subfolder in the Jess71p1 directory.      **********
+**
+** print           - prints any argument
+** printline       - print followed by a newline
+** ask             - prompt the user and read back a token
+** askline         - prompt the user and read back a line of text (a string)
+** askQuestion     - adds a question mark to the prompt used in ask
+** toChar          - given an ASCII integer value, returns the ASCII character as a string
+** boolp           - Test for boolean type
+** xor             - Exclusive-OR for two boolean values
 **
 */
 
@@ -202,10 +204,13 @@
 * begins and rules are fired based on the facts which have been asserted.
 */
 (deffunction runAnagram ()
+
    (reset)
+
+   (bind ?input (getInput))
    (bind ?length (str-length ?word))
 
-   (assertLetterList (slice$ (anagramInput)))
+   (assertList (slice$ ?word))
    (createRule ?length)
 
    (run)
