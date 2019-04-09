@@ -104,9 +104,11 @@
    (printline "***************************")
    (printline "Run Anagrams")
    (printline "***************************")
-   (printline "Only words with 9 or less letters will be analyzed")
+   (printline "Only words with 9 or less letters will be analyzed.")
+   (printline "Number or any other special characters will exit the program.")
    (bind ?input (ask "Enter a Word: "))
    (while (not (isLessThan ?input ?*MAX_LETTERS*))
+      (printline "Invalid! 9 or less letters only please!")
       (bind ?input (ask "Enter a Word: "))
    )
    (return ?input)
@@ -210,10 +212,11 @@
    (bind ?input (getInput))
    (bind ?length (str-length ?input))
 
-   (assertList (slice$ ?input))
+   (assertLetterList (slice$ ?input))
    (createRule ?length)
 
    (run)
    (return)
 
 )
+(runAnagram)
