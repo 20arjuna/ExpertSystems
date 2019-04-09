@@ -106,10 +106,10 @@
    (printline "***************************")
    (printline "Only words with 9 or less letters will be analyzed")
    (bind ?input (ask "Enter a Word: "))
-   (while (not (isLessThan ?word ?*MAX_LETTERS*))
-      (bind ?word (ask "Enter a Word: "))
+   (while (not (isLessThan ?input ?*MAX_LETTERS*))
+      (bind ?input (ask "Enter a Word: "))
    )
-   (return ?word)
+   (return ?input)
 
 )
 
@@ -208,9 +208,9 @@
    (reset)
 
    (bind ?input (getInput))
-   (bind ?length (str-length ?word))
+   (bind ?length (str-length ?input))
 
-   (assertList (slice$ ?word))
+   (assertList (slice$ ?input))
    (createRule ?length)
 
    (run)
