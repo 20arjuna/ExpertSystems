@@ -12,7 +12,7 @@
 ** in the "Anagrams" subfolder which has just been created.
 ** To run this file, open up a Jess prompt
 ** and type (batch ExpertSystems/Anagram/anagram.clp)
-** with parentheses. Type (runAnagram) to start the program, also with parentheses.
+** with parentheses. 
 **
 **                   Functions included in this file
 **
