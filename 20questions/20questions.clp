@@ -31,10 +31,19 @@
 
 
 /*
-** 
-
+** The following rules all fallow the same algorithm. All are backward-chained for an
+** attribute, such as white fur or sharp teeth. Each rule first prints the question
+** number it is asking using the ?*questionNum* global variable defined above. The rules
+** then prompt the user with a question and check to see if the user's input is valid.
+** A valid input starts with the letter y for yes or n for no. If the input is invalid,
+** the program alerts the user and exits the game. Else, it asserts the fact with the
+** attribute being backward chained and pairs it with a pattern represented by the user's
+** input. Ex: If the attribute is pink-skin, the rule will assert a fact (pink-skin y)
+** or (pink-skin n) depending on the user's input. Specific details about each rule
+** are provided in the (defrule) construct.
+*/
 (do-backward-chaining onLand)
-(defrule onLandRule
+(defrule onLandRule "Asks if animal lives on land"
    (need-onLand ?)
     =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -51,7 +60,7 @@
 )
 
 (do-backward-chaining fish)
-(defrule fishRule
+(defrule fishRule "Asks if animal is a fish"
    (need-fish ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -68,7 +77,7 @@
 )
 
 (do-backward-chaining mammal)
-(defrule mammalRule
+(defrule mammalRule "Asks if animal is a mammal"
    (need-mammal ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -85,7 +94,7 @@
 )
 
 (do-backward-chaining reptile)
-(defrule reptileRule
+(defrule reptileRule "Asks if animal is a reptile"
    (need-reptile ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -102,7 +111,7 @@
 )
 
 (do-backward-chaining mollusk)
-(defrule molluskReptile
+(defrule molluskReptile "Asks if animal is a mollusk"
    (need-mollusk ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -119,7 +128,7 @@
 )
 
 (do-backward-chaining harmful)
-(defrule harmfulRule
+(defrule harmfulRule "Asks if animal is harmful"
    (need-harmful ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -136,7 +145,7 @@
 )
 
 (do-backward-chaining big)
-(defrule bigRule
+(defrule bigRule "Asks if animal is bigger than human"
    (need-big ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -153,7 +162,7 @@
 )
 
 (do-backward-chaining nemo)
-(defrule nemoRule
+(defrule nemoRule "Asks if animal is in the movie Finding Nemo"
    (need-nemo ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -170,7 +179,7 @@
 )
 
 (do-backward-chaining orange)
-(defrule orangeRule
+(defrule orangeRule "Asks if animal is orange"
    (need-orange ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -187,7 +196,7 @@
 )
 
 (do-backward-chaining orangeCooked)
-(defrule orangeCookedRule
+(defrule orangeCookedRule "Asks if animal is orange when cooked"
    (need-orangeCooked ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -203,42 +212,8 @@
    (assert (orangeCooked (getFirst ?answer)))
 )
 
-(do-backward-chaining big)
-(defrule bigRule
-   (need-big ?)
-   =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
-   (bind ?answer (ask "Is it bigger than a human?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
-   )
-   (assert (big (getFirst ?answer)))
-)
-
-(do-backward-chaining nemo)
-(defrule nemoRule
-   (need-nemo ?)
-   =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
-   (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
-   )
-   (assert (nemo (getFirst ?answer)))
-)
-
 (do-backward-chaining sharpTeeth)
-(defrule sharpTeethRule
+(defrule sharpTeethRule "Asks if animal has sharp teeth"
    (need-sharpTeeth ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -255,7 +230,7 @@
 )
 
 (do-backward-chaining electric)
-(defrule electricRule
+(defrule electricRule "Asks if animal is electric"
    (need-electric ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -272,7 +247,7 @@
 )
 
 (do-backward-chaining light)
-(defrule lightRule
+(defrule lightRule "Asks if animal has light attached"
    (need-light ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -290,7 +265,7 @@
 
 
 (do-backward-chaining horn)
-(defrule hornRule
+(defrule hornRule "Asks if animal has a horn"
    (need-horn ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -307,7 +282,7 @@
 )
 
 (do-backward-chaining fin)
-(defrule finRule
+(defrule finRule "Asks if animal has a fin"
    (need-fin ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -324,7 +299,7 @@
 )
 
 (do-backward-chaining dangerReptile)
-(defrule dangerReptileRule
+(defrule dangerReptileRule "Asks is dangerous"
    (need-dangerReptile ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -341,7 +316,7 @@
 )
 
 (do-backward-chaining vShaped)
-(defrule vShapedRule
+(defrule vShapedRule "Asks if animal has a vshaped snout"
    (need-vShaped ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -358,7 +333,7 @@
 )
 
 (do-backward-chaining tentacles)
-(defrule tentaclesRule
+(defrule tentaclesRule "Asks if animal has tentacles"
    (need-tentacles ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -375,7 +350,7 @@
 )
 
 (do-backward-chaining triangleHead)
-(defrule triangleHeadRule
+(defrule triangleHeadRule "Asks if animal has a triangular head"
    (need-triangleHead ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -392,7 +367,7 @@
 )
 
 (do-backward-chaining domesticated)
-(defrule domesticatedRule
+(defrule domesticatedRule "Asks if animal is domesticated"
    (need-domesticated ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -409,7 +384,7 @@
 )
 
 (do-backward-chaining ride)
-(defrule rideRule
+(defrule rideRule "Asks if animal can be ridden"
    (need-ride ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -426,7 +401,7 @@
 )
 
 (do-backward-chaining NorthAmerica)
-(defrule northAmericaRule
+(defrule northAmericaRule "Asks if animal is found in north america"
    (need-NorthAmerica ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -443,7 +418,7 @@
 )
 
 (do-backward-chaining SouthAmerica)
-(defrule southAmericaRule
+(defrule southAmericaRule "Asks if animal is found in south america"
    (need-SouthAmerica ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -460,7 +435,7 @@
 )
 
 (do-backward-chaining pet)
-(defrule petRule
+(defrule petRule "Asks if animal can be a pet"
    (need-pet ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -477,7 +452,7 @@
 )
 
 (do-backward-chaining pink)
-(defrule pinkRule
+(defrule pinkRule  "Asks if animal is pink"
    (need-pink ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -494,7 +469,7 @@
 )
 
 (do-backward-chaining Africa)
-(defrule africaRule
+(defrule africaRule  "Asks if animal is african"
    (need-Africa ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -511,7 +486,7 @@
 )
 
 (do-backward-chaining cat)
-(defrule catRule
+(defrule catRule  "Asks if animal is a wild cat"
    (need-cat ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -528,7 +503,7 @@
 )
 
 (do-backward-chaining arctic)
-(defrule arcticRule
+(defrule arcticRule  "Asks if animal lives in arctic"
    (need-arctic ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -545,7 +520,7 @@
 )
 
 (do-backward-chaining stripes)
-(defrule stripesRule
+(defrule stripesRule  "Asks if animal has stripes"
    (need-stripes ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -562,7 +537,7 @@
 )
 
 (do-backward-chaining whitefur)
-(defrule whitefurRule
+(defrule whitefurRule  "Asks if animal has white fur"
    (need-whitefur ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -579,7 +554,7 @@
 )
 
 (do-backward-chaining bear)
-(defrule bearRule
+(defrule bearRule  "Asks if animal is a bear of some kind"
    (need-bear ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -596,7 +571,7 @@
 )
 
 (do-backward-chaining longneck)
-(defrule longneckRule
+(defrule longneckRule  "Asks if animal has a long neck"
    (need-longneck ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -613,7 +588,7 @@
 )
 
 (do-backward-chaining maine)
-(defrule maineRule
+(defrule maineRule  "Asks if animal has a maine"
    (need-maine ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -630,7 +605,7 @@
 )
 
 (do-backward-chaining primate)
-(defrule primateRule
+(defrule primateRule  "Asks if animal is a primate"
    (need-primate ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -647,7 +622,7 @@
 )
 
 (do-backward-chaining speed)
-(defrule speedRule
+(defrule speedRule "Asks if animal is known for its speed"
    (need-speed ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -664,7 +639,7 @@
 )
 
 (do-backward-chaining jaguar)
-(defrule jaguarRule
+(defrule jaguarRule "Asks if animal is a jaguar"
    (need-jaguar ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -681,7 +656,7 @@
 )
 
 (do-backward-chaining bigEars)
-(defrule bigEarsRule
+(defrule bigEarsRule "Asks if animal has big ears"
    (need-bigEars ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -698,7 +673,7 @@
 )
 
 (do-backward-chaining changecolor)
-(defrule changeColorRule
+(defrule changeColorRule "Asks if animal can change color"
    (need-changecolor ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -715,7 +690,7 @@
 )
 
 (do-backward-chaining shell)
-(defrule shellRule
+(defrule shellRule "Asks if animal has a shell"
    (need-shell ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -732,7 +707,7 @@
 )
 
 (do-backward-chaining bird)
-(defrule birdRule
+(defrule birdRule "Asks if animal is a bird"
    (need-bird ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -750,7 +725,7 @@
 
 
 (do-backward-chaining fly)
-(defrule flyRule
+(defrule flyRule "Asks if animal can fly"
    (need-fly ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -767,7 +742,7 @@
 )
 
 (do-backward-chaining blue)
-(defrule blueRule
+(defrule blueRule "Asks if animal is blue"
    (need-cat ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -784,7 +759,7 @@
 )
 
 (do-backward-chaining red)
-(defrule redRule
+(defrule redRule "Asks if animal is red"
    (need-red ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -801,7 +776,7 @@
 )
 
 (do-backward-chaining nationalBird)
-(defrule nationalBirdRule
+(defrule nationalBirdRule "Asks if animal is the US national bird"
    (need-nationalBird ?)
    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
@@ -818,7 +793,15 @@
 )
 
 ;;;;;;;;;;;;;;;; Forward chained rules with patterns which corespond to animals in knowledge base ;;;;;;;;;;;;;;;;;;;
-(defrule giveUp
+
+
+/*
+** The following forward chained rules use the LHS to look for the asserted facts
+** and then guesses the animal whose name is the name of that specific rule.
+**
+*/
+(defrule giveUp ;Used when the user's animal falls outside the scope of the expert system's
+                ;knowlege base
    (onLand n)
    (fish n)
    (reptile n)
@@ -827,7 +810,8 @@
    (printout t "I give up!" crlf)
    (halt)
 )
-(defrule giveUp
+(defrule giveUp ;Used when the user's animal falls outside the scope of the expert system's
+                ;knowlege base
    (onLand y)
    (mammal n)
    (reptile n)
