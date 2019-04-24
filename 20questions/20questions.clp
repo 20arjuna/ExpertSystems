@@ -154,10 +154,18 @@
 
 (do-backward-chaining electric)
 (defrule electricRule
-  (need-sharpTeeth ?)
+  (need-electric ?)
   =>
   (bind ?answer (ask "Is it electric?"))
   (assert (electric (getFirst ?answer)))
+)
+
+(do-backward-chaining light)
+(defrule lightRule
+  (need-light ?)
+  =>
+  (bind ?answer (ask "Does it have a light attached to it?"))
+  (assert (light (getFirst ?answer)))
 )
 
 (do-backward-chaining tusks)
@@ -244,9 +252,194 @@
    (harmful n)
    (big n)
    (nemo y)
-   (orangeCooked y)
+   (orange n)
    =>
-   (printout t "It's a salmon!" crlf)
+   (printout t "It's a Blue Tang!" crlf)
+)
+
+(defrule Clownfish
+   (onLand n)
+   (fish y)
+   (harmful n)
+   (big n)
+   (nemo y)
+   (orange y)
+   =>
+   (printout t "It's a Clownfish!" crlf)
+)
+
+(defrule Blowfish
+   (onLand n)
+   (fish y)
+   (harmful y)
+   (big n)
+   (nemo n)
+   (sharpTeeth n)
+   =>
+   (printout t "It's a Blowfish!" crlf)
+)
+
+(defrule Piranha
+   (onLand n)
+   (fish y)
+   (harmful y)
+   (big n)
+   (nemo n)
+   (sharpTeeth y)
+   (electric n)
+   =>
+   (printout t "It's a Piranha!" crlf)
+)
+
+(defrule Eel
+   (onLand n)
+   (fish y)
+   (harmful y)
+   (big n)
+   (nemo n)
+   (sharpTeeth y)
+   (electric y)
+   =>
+   (printout t "It's an electric eel!" crlf)
+)
+
+(defrule Anglerfish
+   (onLand n)
+   (fish y)
+   (harmful y)
+   (big n)
+   (nemo y)
+   (light y)
+   =>
+   (printout t "It's an anglerfish!" crlf)
+)
+
+(defrule Baracuda
+   (onLand n)
+   (fish y)
+   (harmful y)
+   (big n)
+   (nemo y)
+   (light n)
+   =>
+   (printout t "It's a baracuda!" crlf)
+)
+
+(defrule Shark
+   (onLand n)
+   (fish y)
+   (harmful y)
+   (big y)
+   =>
+   (printout t "It's a shark!" crlf)
+)
+
+(defrule Walrus
+   (onLand n)
+   (fish n)
+   (mammal y)
+   (tusks y)
+   =>
+   (printout t "It's a walrus!" crlf)
+)
+
+(defrule Narwal
+   (onLand n)
+   (fish n)
+   (mammal y)
+   (tusks n)
+   (horn y)
+   =>
+   (printout t "It's a narwal!" crlf)
+)
+
+(defrule Whale
+   (onLand n)
+   (fish n)
+   (mammal y)
+   (tusks y)
+   (horn n)
+   (fin n)
+   =>
+   (printout t "It's a whale!" crlf)
+)
+
+(defrule Dolphin
+   (onLand n)
+   (fish n)
+   (mammal y)
+   (tusks y)
+   (horn n)
+   (fin y)
+   =>
+   (printout t "It's a dolphin!" crlf)
+)
+
+(defrule SeaTurtle
+   (onLand n)
+   (fish n)
+   (mammal n)
+   (reptile y)
+   (dangerReptile n)
+   =>
+   (printout t "It's a sea turtle!" crlf)
+)
+
+(defrule Aligator
+   (onLand n)
+   (fish n)
+   (mammal n)
+   (reptile y)
+   (dangerReptile y)
+   (vShaped n)
+   =>
+   (printout t "It's an aligator!" crlf)
+)
+
+(defrule Crocodile
+   (onLand n)
+   (fish n)
+   (mammal n)
+   (reptile y)
+   (dangerReptile y)
+   (vShaped y)
+   =>
+   (printout t "It's a crocodile!" crlf)
+)
+
+(defrule Mussel
+   (onLand n)
+   (fish n)
+   (mammal n)
+   (reptile n)
+   (mollusk y)
+   (tentacles n)
+   =>
+   (printout t "It's a mussel!" crlf)
+)
+
+(defrule Octopus
+   (onLand n)
+   (fish n)
+   (mammal n)
+   (reptile n)
+   (mollusk y)
+   (tentacles y)
+   (triangleHead n)
+   =>
+   (printout t "It's an octopus!" crlf)
+)
+
+(defrule Squid
+   (onLand n)
+   (fish n)
+   (mammal n)
+   (reptile n)
+   (mollusk y)
+   (tentacles y)
+   (triangleHead y)
+   =>
+   (printout t "It's a squid!" crlf)
 )
 
 (deffunction play ()
