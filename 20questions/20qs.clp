@@ -17,24 +17,11 @@
   (bind ?land (ask "Does it live on land?"))
   (assert (onLand (getFirst ?land)))
 )
-(do-backward-chaining yellow)
-(defrule yellowRule
-  (need-yellow ?)
-  (onLand y)
-  =>
-  (bind ?*MAX_LETTERS* (+ ?*MAX_LETTERS* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*MAX_LETTERS*)
-  (print ": ")
-  (bind ?land (ask "Is it yellow?"))
-  (assert (yellow (getFirst ?land)))
-)
 
 (do-backward-chaining danger)
 (defrule dangerRule
   (need-danger ?)
-  (onLand n)
+  (or (onLand n) (onLand y))
   =>
   (bind ?land (ask "Is it dangerous?"))
   (assert (danger (getFirst ?land)))
