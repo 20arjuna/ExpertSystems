@@ -125,3 +125,7 @@
 (deffunction xor (?a ?b)
    (return (and (or ?a ?b) (not (and ?a ?b))))
 )
+
+(deffunction getFirst (?str)
+   (return (explode$ (sub-string 1 1 ?str)))
+)
