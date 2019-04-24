@@ -1,4 +1,26 @@
-
+/*
+** Created: April 9, 2019
+** Last Modified: April 24, 2019
+**
+** Author(s): Arjun Akkiraju,
+**            with assistance from: Dr. Eric R. Nelson
+**
+** The 20questions file plays the game think of an animal by asking
+** the user to think of an animal and asking it questions to try and
+** guess the user's animal. Because of this knowledge base, the Expert System
+** will ask between 3 and 8 questions before guessing a correct answer or
+** giving up. The Expert System uses backward chaining to define the rule the
+** Expert System uses to ask questions to the user. The code is split into 2 parts,
+** the backward chained question rules which define the different questions the
+** Expert System asks, and the forward-chained rules which use the asserted facts
+** to guess the animal. In order to execute this program,
+** create a separate folder called "ExpertSystems"
+** and then add another subfolder titled "20questions". Insert this file,
+** in the "20questions" subfolder. To load this file, open up a Jess prompt
+** and type (batch ExpertSystems/20questions/20questions.clp) with parentheses.
+** Type (play) to start the program, also with parentheses. To play again after
+** the program terminates, retype (play) with parentheses.
+*/
 
 (clear)
 (reset)
@@ -7,8 +29,11 @@
 
 (defglobal ?*questionNum* = 0) ;global variable used to find which numbered question is being answered
 
+
+/*
+** 
+
 (do-backward-chaining onLand)
-(do-backward-chaining fish)
 (defrule onLandRule
    (need-onLand ?)
     =>
@@ -25,7 +50,7 @@
   (assert (onLand (getFirst ?answer)))
 )
 
-
+(do-backward-chaining fish)
 (defrule fishRule
    (need-fish ?)
    =>
