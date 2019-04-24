@@ -1374,4 +1374,5 @@
   (printline "The program will use no more than 8 attempts to guess the animal.")
   (reset)
   (run)
+  (return)
 )
