@@ -129,3 +129,7 @@
 (deffunction getFirst (?str)
    (return (explode$ (lowcase (sub-string 1 1 ?str))))
 )
+
+(deffunction notEqual (?n1 ?n2)
+   (return (not (= ?n1 ?n2)))
+)

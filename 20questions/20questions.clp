@@ -11,610 +11,802 @@
 (do-backward-chaining fish)
 (defrule onLandRule
    (need-onLand ?)
-   =>
+    =>
    (bind ?*questionNum* (+ ?*questionNum* 1))
    (print "Question ")
    (print "#")
    (print ?*questionNum*)
    (print ": ")
    (bind ?answer (ask "Does it live on land?"))
-   (assert (onLand (getFirst ?answer)))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+  (assert (onLand (getFirst ?answer)))
 )
 
 
 (defrule fishRule
-  (need-fish ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a fish?"))
-  (assert (fish (getFirst ?answer)))
+   (need-fish ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a fish?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (fish (getFirst ?answer)))
 )
 
 (do-backward-chaining mammal)
 (defrule mammalRule
-  (need-mammal ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a mammal?"))
-  (assert (mammal (getFirst ?answer)))
+   (need-mammal ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a mammal?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (mammal (getFirst ?answer)))
 )
 
 (do-backward-chaining reptile)
 (defrule reptileRule
-  (need-reptile ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a reptile?"))
+   (need-reptile ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a reptile?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
   (assert (reptile (getFirst ?answer)))
 )
 
 (do-backward-chaining mollusk)
 (defrule molluskReptile
-  (need-mollusk ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a mollusk?"))
+   (need-mollusk ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a mollusk?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
   (assert (mollusk (getFirst ?answer)))
 )
 
 (do-backward-chaining harmful)
 (defrule harmfulRule
-  (need-harmful ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it harmful to humans?"))
+   (need-harmful ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it harmful to humans?"))
+   (if (notEqual(validate ?answer) TRUE) then
+       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+       (halt)
+   )
   (assert (harmful (getFirst ?answer)))
 )
 
 (do-backward-chaining big)
 (defrule bigRule
-  (need-big ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it bigger than a human?"))
+   (need-big ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it bigger than a human?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
   (assert (big (getFirst ?answer)))
 )
 
 (do-backward-chaining nemo)
 (defrule nemoRule
-  (need-nemo ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
-  (assert (nemo (getFirst ?answer)))
+   (need-nemo ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (nemo (getFirst ?answer)))
 )
 
 (do-backward-chaining orange)
 (defrule orangeRule
-  (need-orange ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it orange?"))
-  (assert (orange (getFirst ?answer)))
+   (need-orange ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it orange?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (orange (getFirst ?answer)))
 )
 
 (do-backward-chaining orangeCooked)
 (defrule orangeCookedRule
-  (need-orangeCooked ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it orange when cooked?"))
-  (assert (orangeCooked (getFirst ?answer)))
+   (need-orangeCooked ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it orange when cooked?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (orangeCooked (getFirst ?answer)))
 )
 
 (do-backward-chaining big)
 (defrule bigRule
-  (need-big ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it bigger than a human?"))
-  (assert (big (getFirst ?answer)))
+   (need-big ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it bigger than a human?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (big (getFirst ?answer)))
 )
 
 (do-backward-chaining nemo)
 (defrule nemoRule
-  (need-nemo ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
-  (assert (nemo (getFirst ?answer)))
+   (need-nemo ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (nemo (getFirst ?answer)))
 )
 
 (do-backward-chaining sharpTeeth)
 (defrule sharpTeethRule
-  (need-sharpTeeth ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have sharp teeth?"))
-  (assert (sharpTeeth (getFirst ?answer)))
+   (need-sharpTeeth ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have sharp teeth?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (sharpTeeth (getFirst ?answer)))
 )
 
 (do-backward-chaining electric)
 (defrule electricRule
-  (need-electric ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it electric?"))
-  (assert (electric (getFirst ?answer)))
+   (need-electric ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it electric?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (electric (getFirst ?answer)))
 )
 
 (do-backward-chaining light)
 (defrule lightRule
-  (need-light ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a light attached to it?"))
-  (assert (light (getFirst ?answer)))
+   (need-light ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a light attached to it?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (light (getFirst ?answer)))
 )
 
 
 (do-backward-chaining horn)
 (defrule hornRule
-  (need-horn ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a horn?"))
-  (assert (horn (getFirst ?answer)))
+   (need-horn ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a horn?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (horn (getFirst ?answer)))
 )
 
 (do-backward-chaining fin)
 (defrule finRule
-  (need-fin ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a fin?"))
-  (assert (fin (getFirst ?answer)))
+   (need-fin ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a fin?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (fin (getFirst ?answer)))
 )
 
 (do-backward-chaining dangerReptile)
 (defrule dangerReptileRule
-  (need-dangerReptile ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it dangerous to humans?"))
-  (assert (dangerReptile (getFirst ?answer)))
+   (need-dangerReptile ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it dangerous to humans?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (dangerReptile (getFirst ?answer)))
 )
 
 (do-backward-chaining vShaped)
 (defrule vShapedRule
-  (need-vShaped ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a v-shaped snout?"))
-  (assert (vShaped (getFirst ?answer)))
+   (need-vShaped ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a v-shaped snout?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (vShaped (getFirst ?answer)))
 )
 
 (do-backward-chaining tentacles)
 (defrule tentaclesRule
-  (need-tentacles ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have tentacles?"))
-  (assert (tentacles (getFirst ?answer)))
+   (need-tentacles ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have tentacles?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (tentacles (getFirst ?answer)))
 )
 
 (do-backward-chaining triangleHead)
 (defrule triangleHeadRule
-  (need-triangleHead ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a triangular head?"))
-  (assert (triangleHead (getFirst ?answer)))
+   (need-triangleHead ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a triangular head?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (triangleHead (getFirst ?answer)))
 )
 
 (do-backward-chaining domesticated)
 (defrule domesticatedRule
-  (need-domesticated ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Has it been domesticated?"))
-  (assert (domesticated (getFirst ?answer)))
+   (need-domesticated ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Has it been domesticated?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (domesticated (getFirst ?answer)))
 )
 
 (do-backward-chaining ride)
 (defrule rideRule
-  (need-ride ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Can you ride it?"))
-  (assert (ride (getFirst ?answer)))
+   (need-ride ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Can you ride it?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (ride (getFirst ?answer)))
 )
 
 (do-backward-chaining NorthAmerica)
 (defrule northAmericaRule
-  (need-NorthAmerica ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Can it be found in North America?"))
-  (assert (NorthAmerica (getFirst ?answer)))
+   (need-NorthAmerica ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Can it be found in North America?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (NorthAmerica (getFirst ?answer)))
 )
 
 (do-backward-chaining SouthAmerica)
 (defrule southAmericaRule
-  (need-SouthAmerica ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Can it be found in South America?"))
-  (assert (SouthAmerica (getFirst ?answer)))
+   (need-SouthAmerica ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Can it be found in South America?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (SouthAmerica (getFirst ?answer)))
 )
 
 (do-backward-chaining pet)
 (defrule petRule
-  (need-pet ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a common household pet?"))
-  (assert (pet (getFirst ?answer)))
+   (need-pet ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a common household pet?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (pet (getFirst ?answer)))
 )
 
 (do-backward-chaining pink)
 (defrule pinkRule
-  (need-pink ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it pink?"))
-  (assert (pink (getFirst ?answer)))
+   (need-pink ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it pink?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (pink (getFirst ?answer)))
 )
 
 (do-backward-chaining Africa)
 (defrule africaRule
-  (need-Africa ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Can it be found in Africa?"))
-  (assert (Africa (getFirst ?answer)))
+   (need-Africa ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Can it be found in Africa?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (Africa (getFirst ?answer)))
 )
 
 (do-backward-chaining cat)
 (defrule catRule
-  (need-cat ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a cat of some kind?"))
-  (assert (cat (getFirst ?answer)))
+   (need-cat ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a cat of some kind?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (cat (getFirst ?answer)))
 )
 
 (do-backward-chaining arctic)
 (defrule arcticRule
-  (need-arctic ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it live in the arctic or antartica?"))
-  (assert (arctic (getFirst ?answer)))
+   (need-arctic ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it live in the arctic or antartica?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (arctic (getFirst ?answer)))
 )
 
 (do-backward-chaining stripes)
 (defrule stripesRule
-  (need-stripes ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have stripes?"))
-  (assert (stripes (getFirst ?answer)))
+   (need-stripes ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have stripes?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (stripes (getFirst ?answer)))
 )
 
 (do-backward-chaining whitefur)
 (defrule whitefurRule
-  (need-whitefur ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have whitefur?"))
-  (assert (whitefur (getFirst ?answer)))
+   (need-whitefur ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have whitefur?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (whitefur (getFirst ?answer)))
 )
 
 (do-backward-chaining bear)
 (defrule bearRule
-  (need-bear ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a bear of some kind?"))
-  (assert (bear (getFirst ?answer)))
+   (need-bear ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a bear of some kind?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (bear (getFirst ?answer)))
 )
 
 (do-backward-chaining longneck)
 (defrule longneckRule
-  (need-longneck ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a long neck?"))
-  (assert (longneck (getFirst ?answer)))
+   (need-longneck ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a long neck?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (longneck (getFirst ?answer)))
 )
 
 (do-backward-chaining maine)
 (defrule maineRule
-  (need-maine ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a maine?"))
-  (assert (maine (getFirst ?answer)))
+   (need-maine ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a maine?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (maine (getFirst ?answer)))
 )
 
 (do-backward-chaining primate)
 (defrule primateRule
-  (need-primate ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a primate?"))
-  (assert (primate (getFirst ?answer)))
+   (need-primate ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a primate?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (primate (getFirst ?answer)))
 )
 
 (do-backward-chaining speed)
 (defrule speedRule
-  (need-speed ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is known for its speed?"))
-  (assert (speed (getFirst ?answer)))
+   (need-speed ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is known for its speed?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (speed (getFirst ?answer)))
 )
 
 (do-backward-chaining jaguar)
 (defrule jaguarRule
-  (need-jaguar ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a jaguar?"))
-  (assert (jaguar (getFirst ?answer)))
+   (need-jaguar ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a jaguar?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (jaguar (getFirst ?answer)))
 )
 
 (do-backward-chaining bigEars)
 (defrule bigEarsRule
-  (need-bigEars ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have big ears?"))
-  (assert (bigEars (getFirst ?answer)))
+   (need-bigEars ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have big ears?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (bigEars (getFirst ?answer)))
 )
 
 (do-backward-chaining changecolor)
 (defrule changeColorRule
-  (need-changecolor ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it change color?"))
-  (assert (changecolor (getFirst ?answer)))
+   (need-changecolor ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it change color?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (changecolor (getFirst ?answer)))
 )
 
 (do-backward-chaining shell)
 (defrule shellRule
-  (need-shell ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it have a shell?"))
-  (assert (shell (getFirst ?answer)))
+   (need-shell ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it have a shell?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (shell (getFirst ?answer)))
 )
 
 (do-backward-chaining bird)
 (defrule birdRule
-  (need-bird ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it a bird of some kind?"))
-  (assert (bird (getFirst ?answer)))
+   (need-bird ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it a bird of some kind?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (bird (getFirst ?answer)))
 )
 
 
 (do-backward-chaining fly)
 (defrule flyRule
-  (need-fly ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Does it fly?"))
-  (assert (fly (getFirst ?answer)))
+   (need-fly ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Does it fly?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (fly (getFirst ?answer)))
 )
 
 (do-backward-chaining blue)
 (defrule blueRule
-  (need-cat ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it blue?"))
-  (assert (blue (getFirst ?answer)))
+   (need-cat ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it blue?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (blue (getFirst ?answer)))
 )
 
 (do-backward-chaining red)
 (defrule redRule
-  (need-red ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it red?"))
-  (assert (red (getFirst ?answer)))
+   (need-red ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it red?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (red (getFirst ?answer)))
 )
 
 (do-backward-chaining nationalBird)
 (defrule nationalBirdRule
-  (need-nationalBird ?)
-  =>
-  (bind ?*questionNum* (+ ?*questionNum* 1))
-  (print "Question ")
-  (print "#")
-  (print ?*questionNum*)
-  (print ": ")
-  (bind ?answer (ask "Is it the US National Bird?"))
-  (assert (nationalBird (getFirst ?answer)))
+   (need-nationalBird ?)
+   =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+   (bind ?answer (ask "Is it the US National Bird?"))
+   (if (notEqual(validate ?answer) TRUE) then
+      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
+      (halt)
+   )
+   (assert (nationalBird (getFirst ?answer)))
 )
 
-
+;;;;;;;;;;;;;;;; Forward chained rules with patterns which corespond to animals in knowledge base ;;;;;;;;;;;;;;;;;;;
 (defrule giveUp
    (onLand n)
    (fish n)
    (reptile n)
    (mollusk n)
-   =>
+    =>
+   (printout t "I give up!" crlf)
+   (halt)
+)
+(defrule giveUp
+   (onLand y)
+   (mammal n)
+   (reptile n)
+    =>
    (printout t "I give up!" crlf)
    (halt)
 )
@@ -624,7 +816,7 @@
    (harmful n)
    (nemo n)
    (orangeCooked y)
-   =>
+    =>
    (printout t "It's a salmon!" crlf)
 )
 
@@ -635,7 +827,7 @@
 
    (nemo n)
    (orangeCooked n)
-   =>
+    =>
    (printout t "It's a tuna!" crlf)
 )
 
@@ -646,7 +838,7 @@
 
    (nemo y)
    (orange n)
-   =>
+    =>
    (printout t "It's a Blue Tang!" crlf)
 )
 
@@ -657,7 +849,7 @@
 
    (nemo y)
    (orange y)
-   =>
+    =>
    (printout t "It's a Clownfish!" crlf)
 )
 
@@ -668,7 +860,7 @@
    (big n)
    (nemo n)
    (sharpTeeth n)
-   =>
+    =>
    (printout t "It's a Blowfish!" crlf)
 )
 
@@ -680,7 +872,7 @@
    (nemo n)
    (sharpTeeth y)
    (electric n)
-   =>
+    =>
    (printout t "It's a Piranha!" crlf)
 )
 
@@ -692,7 +884,7 @@
    (nemo n)
    (sharpTeeth y)
    (electric y)
-   =>
+    =>
    (printout t "It's an electric eel!" crlf)
 )
 
@@ -703,7 +895,7 @@
    (big n)
    (nemo y)
    (light y)
-   =>
+    =>
    (printout t "It's an anglerfish!" crlf)
 )
 
@@ -714,7 +906,7 @@
    (big n)
    (nemo y)
    (light n)
-   =>
+    =>
    (printout t "It's a baracuda!" crlf)
 )
 
@@ -723,17 +915,17 @@
    (fish y)
    (harmful y)
    (big y)
-   =>
+    =>
    (printout t "It's a shark!" crlf)
 )
 
 
 (defrule Narwal
-   (onLand n)
+    (onLand n)
    (fish n)
    (mammal y)
    (horn y)
-   =>
+    =>
    (printout t "It's a narwal!" crlf)
 )
 
@@ -743,7 +935,7 @@
    (mammal y)
    (horn n)
    (fin n)
-   =>
+    =>
    (printout t "It's a whale!" crlf)
 )
 
@@ -753,7 +945,7 @@
    (mammal y)
    (horn n)
    (fin y)
-   =>
+    =>
    (printout t "It's a dolphin!" crlf)
    (halt)
 )
@@ -764,7 +956,7 @@
    (mammal n)
    (reptile y)
    (dangerReptile n)
-   =>
+    =>
    (printout t "It's a sea turtle!" crlf)
 )
 
@@ -775,7 +967,7 @@
    (reptile y)
    (dangerReptile y)
    (vShaped n)
-   =>
+    =>
    (printout t "It's an aligator!" crlf)
 )
 
@@ -786,7 +978,7 @@
    (reptile y)
    (dangerReptile y)
    (vShaped y)
-   =>
+    =>
    (printout t "It's a crocodile!" crlf)
 )
 
@@ -797,7 +989,7 @@
    (reptile n)
    (mollusk y)
    (tentacles n)
-   =>
+    =>
    (printout t "It's a mussel!" crlf)
 )
 
@@ -809,7 +1001,7 @@
    (mollusk y)
    (tentacles y)
    (triangleHead n)
-   =>
+    =>
    (printout t "It's an octopus!" crlf)
 )
 
@@ -821,7 +1013,7 @@
    (mollusk y)
    (tentacles y)
    (triangleHead y)
-   =>
+    =>
    (printout t "It's a squid!" crlf)
 )
 
@@ -831,7 +1023,7 @@
    (domesticated y)
    (ride y)
    (NorthAmerica y)
-   =>
+    =>
    (printout t "It's a horse!" crlf)
 )
 
@@ -842,7 +1034,7 @@
    (ride y)
    (NorthAmerica n)
    (SouthAmerica y)
-   =>
+    =>
    (printout t "It's an alpaca!" crlf)
 )
 
@@ -853,7 +1045,7 @@
    (ride y)
    (NorthAmerica n)
    (SouthAmerica n)
-   =>
+    =>
    (printout t "It's a camel!" crlf)
 )
 
@@ -863,7 +1055,7 @@
    (domesticated y)
    (ride n)
    (horn y)
-   =>
+    =>
    (printout t "It's an ox!" crlf)
 )
 
@@ -875,7 +1067,7 @@
    (horn n)
    (pet n)
    (pink n)
-   =>
+    =>
    (printout t "It's a sheep!" crlf)
 )
 
@@ -887,7 +1079,7 @@
    (horn n)
    (pet n)
    (pink y)
-   =>
+    =>
    (printout t "It's a pig!" crlf)
 )
 
@@ -898,7 +1090,7 @@
    (ride n)
    (horn n)
    (pet y)
-   =>
+    =>
    (printout t "It's a dog!" crlf)
 )
 
@@ -910,7 +1102,7 @@
    (Africa n)
    (arctic y)
    (whitefur y)
-   =>
+    =>
    (printout t "It's a polar bear!" crlf)
 )
 
@@ -922,7 +1114,7 @@
    (Africa n)
    (arctic y)
    (whitefur n)
-   =>
+    =>
    (printout t "It's a wolf!" crlf)
 )
 
@@ -934,7 +1126,7 @@
    (Africa n)
    (arctic n)
    (NorthAmerica y)
-   =>
+    =>
    (printout t "It's a bear!" crlf)
 )
 
@@ -946,7 +1138,7 @@
    (Africa y)
    (stripes n)
    (longneck y)
-   =>
+    =>
    (printout t "It's a giraffe!" crlf)
 )
 
@@ -957,7 +1149,7 @@
    (dangerReptile n)
    (Africa y)
    (stripes y)
-   =>
+    =>
    (printout t "It's a zebra!" crlf)
 )
 
@@ -969,7 +1161,7 @@
    (Africa y)
    (stripes n)
    (longneck n)
-   =>
+    =>
    (printout t "It's a monkey!" crlf)
 )
 
@@ -980,7 +1172,7 @@
    (dangerReptile n)
    (Africa n)
    (bear y)
-   =>
+    =>
    (printout t "It's a panda!" crlf)
 )
 
@@ -991,7 +1183,7 @@
    (dangerReptile n)
    (Africa n)
    (bear n)
-   =>
+    =>
    (printout t "It's a monkey!" crlf)
 )
 
@@ -1003,7 +1195,7 @@
    (Africa y)
    (cat y)
    (maine y)
-   =>
+    =>
    (printout t "It's a lion!" crlf)
 )
 
@@ -1016,7 +1208,7 @@
    (cat y)
    (maine n)
    (speed y)
-   =>
+    =>
    (printout t "It's a cheetah!" crlf)
 )
 
@@ -1029,7 +1221,7 @@
    (cat y)
    (maine n)
    (speed n)
-   =>
+    =>
    (printout t "It's a jaguar!" crlf)
 )
 
@@ -1041,7 +1233,7 @@
    (Africa y)
    (cat n)
    (primate y)
-   =>
+    =>
    (printout t "It's a gorilla!" crlf)
 )
 
@@ -1054,7 +1246,7 @@
    (cat n)
    (primate n)
    (bigEars y)
-   =>
+    =>
    (printout t "It's an elephant!" crlf)
 )
 
@@ -1065,7 +1257,7 @@
    (bird n)
    (changecolor n)
    (shell n)
-   =>
+    =>
    (printout t "It's a snake!" crlf)
 )
 
@@ -1076,7 +1268,7 @@
    (bird n)
    (changecolor n)
    (shell y)
-   =>
+    =>
    (printout t "It's a tortoise!" crlf)
 )
 
@@ -1086,7 +1278,7 @@
    (reptile y)
    (bird n)
    (changecolor y)
-   =>
+    =>
    (printout t "It's a chameleon!" crlf)
 )
 
@@ -1096,7 +1288,7 @@
    (reptile y)
    (bird n)
    (changecolor y)
-   =>
+    =>
    (printout t "It's a chameleon!" crlf)
 )
 
@@ -1107,7 +1299,7 @@
    (bird y)
    (fly y)
    (nationalBird y)
-   =>
+    =>
    (printout t "It's a bald eagle!" crlf)
 )
 
@@ -1118,7 +1310,7 @@
    (bird y)
    (fly y)
    (nationalBird n)
-   =>
+    =>
    (printout t "It's a falcon!" crlf)
 )
 
@@ -1128,15 +1320,30 @@
    (reptile y)
    (bird y)
    (fly n)
-   =>
+    =>
    (printout t "It's an ostrich!" crlf)
 )
+
+(deffunction validate (?n)
+   (if (numberp ?n) then
+     (bind ?answer FALSE)
+
+   elif (and(notEqual (str-compare (lowcase (sub-string 1 1 ?n)) y ) 0)
+           (notEqual (str-compare (lowcase (sub-string 1 1 ?n)) n ) 0)) then
+
+     (bind ?answer FALSE)
+   else
+     (bind ?answer TRUE)
+   )
+   (return ?answer)
+)
+
 (deffunction play ()
-   (printline "**** Think of an animal game ****")
-   (printline "Think of an animal and answer the following questions!")
-   (printline "Only respond in words starting 'y' for yes and 'n' for no.")
-   (printline "All other input will close the program.")
-   (printline "The program will use no more than 8 attempts to guess the animal.")
-   (reset)
-   (run)
+  (printline "**** Think of an animal game ****")
+  (printline "Think of an animal and answer the following questions!")
+  (printline "Only respond in words starting 'y' for yes and 'n' for no.")
+  (printline "All other input will close the program.")
+  (printline "The program will use no more than 8 attempts to guess the animal.")
+  (reset)
+  (run)
 )
