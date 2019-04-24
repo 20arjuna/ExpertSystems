@@ -1,21 +1,11 @@
 /*
 ** Created: February 1, 2019
-** Last Modified: February 25, 2019
+** Last Modified: April 24, 2019
 **
 ** Author: Arjun Akkiraju
 ** Author: Dr. Eric R. Nelson
 **
 ** Small collection of JESSS utilities for ATCS:Expert Systems
-**
-** print       - prints any argument
-** printline   - print followed by a newline
-** ask         - prompt the user and read back a token
-** askline     - prompt the user and read back a line of text (a string)
-** askQuestion - adds a question mark to the prompt used in ask
-** toChar      - given an ASCII integer value, returns the ASCII character as a string
-** boolp       - Test for boolean type
-** xor         - Exclusive-OR for two boolean values
-
 */
 
 /*
@@ -126,10 +116,24 @@
    (return (and (or ?a ?b) (not (and ?a ?b))))
 )
 
+/*
+** Gets the first character in a given string
+**
+** Argument: ?str      The given string
+** Returns:            The first character in the given string
+*/
 (deffunction getFirst (?str)
    (return (explode$ (lowcase (sub-string 1 1 ?str))))
 )
 
+/*
+** Checks if two integers are unequal.
+**
+** Argument: ?n1     The first integer
+** Argument: ?n2     The second integer
+** Returns:          True if the two integers are unequal; otherwise,
+**                   False
+*/
 (deffunction notEqual (?n1 ?n2)
    (return (not (= ?n1 ?n2)))
 )

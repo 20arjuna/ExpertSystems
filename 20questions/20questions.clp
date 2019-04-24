@@ -1333,6 +1333,17 @@
    (printout t "It's an ostrich!" crlf)
 )
 
+/*
+** Checks to see if the user's input is valid. Valid input is defined as
+** a string which starts with either y to signal yes, and n to signal no.
+** The algorithm first checks if the input is a number or not. Then it checks
+** to see if the first letter of the user's input matches either y or n.
+** If it does, the function returns true. If not, it returns false.
+**
+** Argument: ?n   The input token being validated
+** Returns:       True if the token is valid; otherwise,
+**                False
+*/
 (deffunction validate (?n)
    (if (numberp ?n) then
      (bind ?answer FALSE)
@@ -1347,6 +1358,14 @@
    (return ?answer)
 )
 
+/*
+** This function serves as the driver function for the 20questions file.
+** This is the function a user calls to start the game and it prints out
+** relevant instructuions/information about the program and also uses the
+** (reset) function to remove all facts from working memory and the (run)
+** function to run the rule engine.
+**
+*/
 (deffunction play ()
   (printline "**** Think of an animal game ****")
   (printline "Think of an animal and answer the following questions!")
