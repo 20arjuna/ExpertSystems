@@ -168,13 +168,6 @@
   (assert (light (getFirst ?answer)))
 )
 
-(do-backward-chaining tusks)
-(defrule tuskRule
-  (need-tusk ?)
-  =>
-  (bind ?answer (ask "Does it have tusks?"))
-  (assert (tusks (getFirst ?answer)))
-)
 
 (do-backward-chaining horn)
 (defrule hornRule
@@ -224,6 +217,223 @@
   (assert (triangleHead (getFirst ?answer)))
 )
 
+(do-backward-chaining domesticated)
+(defrule domesticatedRule
+  (need-domesticated ?)
+  =>
+  (bind ?answer (ask "Has it been domesticated?"))
+  (assert (domesticated (getFirst ?answer)))
+)
+
+(do-backward-chaining ride)
+(defrule rideRule
+  (need-ride ?)
+  =>
+  (bind ?answer (ask "Can you ride it?"))
+  (assert (ride (getFirst ?answer)))
+)
+
+(do-backward-chaining NorthAmerica)
+(defrule northAmericaRule
+  (need-NorthAmerica ?)
+  =>
+  (bind ?answer (ask "Can it be found in North America?"))
+  (assert (NorthAmerica (getFirst ?answer)))
+)
+
+(do-backward-chaining SouthAmerica)
+(defrule southAmericaRule
+  (need-SouthAmerica ?)
+  =>
+  (bind ?answer (ask "Can it be found in South America?"))
+  (assert (SouthAmerica (getFirst ?answer)))
+)
+
+(do-backward-chaining pet)
+(defrule petRule
+  (need-pet ?)
+  =>
+  (bind ?answer (ask "Is it a common household pet?"))
+  (assert (pet (getFirst ?answer)))
+)
+
+(do-backward-chaining pink)
+(defrule pinkRule
+  (need-pink ?)
+  =>
+  (bind ?answer (ask "Is it pink?"))
+  (assert (pink (getFirst ?answer)))
+)
+
+(do-backward-chaining Africa)
+(defrule africaRule
+  (need-Africa ?)
+  =>
+  (bind ?answer (ask "Can it be found in Africa?"))
+  (assert (Africa (getFirst ?answer)))
+)
+
+(do-backward-chaining cat)
+(defrule catRule
+  (need-cat ?)
+  =>
+  (bind ?answer (ask "Is it a cat of some kind?"))
+  (assert (cat (getFirst ?answer)))
+)
+
+(do-backward-chaining arctic)
+(defrule arcticRule
+  (need-arctic ?)
+  =>
+  (bind ?answer (ask "Does it live in the arctic or antartica?"))
+  (assert (arctic (getFirst ?answer)))
+)
+
+(do-backward-chaining stripes)
+(defrule stripesRule
+  (need-stripes ?)
+  =>
+  (bind ?answer (ask "Does it have stripes?"))
+  (assert (stripes (getFirst ?answer)))
+)
+
+(do-backward-chaining whitefur)
+(defrule whitefurRule
+  (need-whitefur ?)
+  =>
+  (bind ?answer (ask "Does it have whitefur?"))
+  (assert (whitefur (getFirst ?answer)))
+)
+
+(do-backward-chaining bear)
+(defrule bearRule
+  (need-bear ?)
+  =>
+  (bind ?answer (ask "Is it a bear of some kind?"))
+  (assert (bear (getFirst ?answer)))
+)
+
+(do-backward-chaining longneck)
+(defrule longneckRule
+  (need-longneck ?)
+  =>
+  (bind ?answer (ask "Does it have a long neck?"))
+  (assert (longneck (getFirst ?answer)))
+)
+
+(do-backward-chaining maine)
+(defrule maineRule
+  (need-maine ?)
+  =>
+  (bind ?answer (ask "Does it have a maine?"))
+  (assert (maine (getFirst ?answer)))
+)
+
+(do-backward-chaining primate)
+(defrule primateRule
+  (need-primate ?)
+  =>
+  (bind ?answer (ask "Is it a primate?"))
+  (assert (primate (getFirst ?answer)))
+)
+
+(do-backward-chaining speed)
+(defrule speedRule
+  (need-speed ?)
+  =>
+  (bind ?answer (ask "Is known for its speed?"))
+  (assert (speed (getFirst ?answer)))
+)
+
+(do-backward-chaining jaguar)
+(defrule jaguarRule
+  (need-jaguar ?)
+  =>
+  (bind ?answer (ask "Is it a jaguar?"))
+  (assert (jaguar (getFirst ?answer)))
+)
+
+(do-backward-chaining bigEars)
+(defrule bigEarsRule
+  (need-bigEars ?)
+  =>
+  (bind ?answer (ask "Does it have big ears?"))
+  (assert (bigEars (getFirst ?answer)))
+)
+
+(do-backward-chaining changecolor)
+(defrule changeColorRule
+  (need-changecolor ?)
+  =>
+  (bind ?answer (ask "Does it change color?"))
+  (assert (changecolor (getFirst ?answer)))
+)
+
+(do-backward-chaining shell)
+(defrule shellRule
+  (need-shell ?)
+  =>
+  (bind ?answer (ask "Does it have a shell?"))
+  (assert (shell (getFirst ?answer)))
+)
+
+(do-backward-chaining bird)
+(defrule birdRule
+  (need-bird ?)
+  =>
+  (bind ?answer (ask "Is it a bird of some kind?"))
+  (assert (bird (getFirst ?answer)))
+)
+
+(do-backward-chaining sports)
+(defrule sportsRule
+  (need-sports ?)
+  =>
+  (bind ?answer (ask "Is it the logo of a major US sports team?"))
+  (assert (sports (getFirst ?answer)))
+)
+
+(do-backward-chaining fly)
+(defrule flyRule
+  (need-fly ?)
+  =>
+  (bind ?answer (ask "Does it fly?"))
+  (assert (fly (getFirst ?answer)))
+)
+
+(do-backward-chaining blue)
+(defrule blueRule
+  (need-cat ?)
+  =>
+  (bind ?answer (ask "Is it blue?"))
+  (assert (blue (getFirst ?answer)))
+)
+
+(do-backward-chaining red)
+(defrule redRule
+  (need-red ?)
+  =>
+  (bind ?answer (ask "Is it red?"))
+  (assert (red (getFirst ?answer)))
+)
+
+(do-backward-chaining nationalBird)
+(defrule nationalBirdRule
+  (need-nationalBird ?)
+  =>
+  (bind ?answer (ask "Is it the US National Bird?"))
+  (assert (nationalBird (getFirst ?answer)))
+)
+
+
+(defrule giveUp
+   (onLand n)
+   (fish n)
+   (reptile n)
+   (mollusk n)
+   =>
+   (printout "I give up!" crlf)
+)
 (defrule salmon
    (onLand n)
    (fish y)
@@ -334,20 +544,11 @@
    (printout t "It's a shark!" crlf)
 )
 
-(defrule Walrus
-   (onLand n)
-   (fish n)
-   (mammal y)
-   (tusks y)
-   =>
-   (printout t "It's a walrus!" crlf)
-)
 
 (defrule Narwal
    (onLand n)
    (fish n)
    (mammal y)
-   (tusks n)
    (horn y)
    =>
    (printout t "It's a narwal!" crlf)
@@ -357,7 +558,6 @@
    (onLand n)
    (fish n)
    (mammal y)
-   (tusks y)
    (horn n)
    (fin n)
    =>
@@ -368,7 +568,6 @@
    (onLand n)
    (fish n)
    (mammal y)
-   (tusks y)
    (horn n)
    (fin y)
    =>
@@ -442,7 +641,315 @@
    (printout t "It's a squid!" crlf)
 )
 
+(defrule Horse
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride y)
+   (NorthAmerica y)
+   =>
+   (printout t "It's a horse!" crlf)
+)
+
+(defrule Alpaca
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride y)
+   (NorthAmerica n)
+   (SouthAmerica y)
+   =>
+   (printout t "It's an alpaca!" crlf)
+)
+
+(defrule Camel
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride y)
+   (NorthAmerica n)
+   (SouthAmerica n)
+   =>
+   (printout t "It's a camel!" crlf)
+)
+
+(defrule Ox
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride n)
+   (horn y)
+   =>
+   (printout t "It's an ox!" crlf)
+)
+
+(defrule Sheep
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride n)
+   (horn n)
+   (pet n)
+   (pink n)
+   =>
+   (printout t "It's a sheep!" crlf)
+)
+
+(defrule Pig
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride n)
+   (horn n)
+   (pet n)
+   (pink y)
+   =>
+   (printout t "It's a pig!" crlf)
+)
+
+(defrule Sheep
+   (onLand y)
+   (mammal y)
+   (domesticated y)
+   (ride n)
+   (horn n)
+   (pet y)
+   =>
+   (printout t "It's a dog!" crlf)
+)
+
+(defrule Polarbear
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa n)
+   (arctic y)
+   (whitefur y)
+   =>
+   (printout t "It's a polar bear!" crlf)
+)
+
+(defrule wolf
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa n)
+   (arctic y)
+   (whitefur n)
+   =>
+   (printout t "It's a wolf!" crlf)
+)
+
+(defrule Bear
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa n)
+   (arctic n)
+   (NorthAmerica y)
+   =>
+   (printout t "It's a bear!" crlf)
+)
+
+(defrule Giraffe
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile n)
+   (Africa y)
+   (stripes n)
+   (longneck y)
+   =>
+   (printout t "It's a giraffe!" crlf)
+)
+
+(defrule Zebra
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile n)
+   (Africa y)
+   (stripes y)
+   =>
+   (printout t "It's a zebra!" crlf)
+)
+
+(defrule Monkey
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile n)
+   (Africa y)
+   (stripes n)
+   (longneck n)
+   =>
+   (printout t "It's a monkey!" crlf)
+)
+
+(defrule Panda
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile n)
+   (Africa n)
+   (bear y)
+   =>
+   (printout t "It's a panda!" crlf)
+)
+
+(defrule monkey
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile n)
+   (Africa n)
+   (bear n)
+   =>
+   (printout t "It's a monkey!" crlf)
+)
+
+(defrule Lion
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa y)
+   (cat y)
+   (maine y)
+   =>
+   (printout t "It's a lion!" crlf)
+)
+
+(defrule Cheetah
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa y)
+   (cat y)
+   (maine n)
+   (speed y)
+   =>
+   (printout t "It's a cheetah!" crlf)
+)
+
+(defrule Jaguar
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa y)
+   (cat y)
+   (maine n)
+   (speed n)
+   =>
+   (printout t "It's a jaguar!" crlf)
+)
+
+(defrule Gorilla
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa y)
+   (cat n)
+   (primate y)
+   =>
+   (printout t "It's a gorilla!" crlf)
+)
+
+(defrule Elephant
+   (onLand y)
+   (mammal y)
+   (domesticated n)
+   (dangerReptile y)
+   (Africa y)
+   (cat n)
+   (primate n)
+   (bigEars y)
+   =>
+   (printout t "It's an elephant!" crlf)
+)
+
+(defrule Snake
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird n)
+   (changecolor n)
+   (shell n)
+   =>
+   (printout t "It's a snake!" crlf)
+)
+
+(defrule Tortoise
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird n)
+   (changecolor n)
+   (shell y)
+   =>
+   (printout t "It's a tortoise!" crlf)
+)
+
+(defrule Chameleon
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird n)
+   (changecolor y)
+   =>
+   (printout t "It's a chameleon!" crlf)
+)
+
+(defrule Chameleon
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird n)
+   (changecolor y)
+   =>
+   (printout t "It's a chameleon!" crlf)
+)
+
+(defrule BaldEagle
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird y)
+   (fly y)
+   (nationalBird y)
+   =>
+   (printout t "It's a bald eagle!" crlf)
+)
+
+(defrule Falcon
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird y)
+   (fly y)
+   (nationalBird n)
+   =>
+   (printout t "It's a falcon!" crlf)
+)
+
+(defrule Ostrich
+   (onLand y)
+   (mammal n)
+   (reptile y)
+   (bird y)
+   (fly n)
+   =>
+   (printout t "It's an ostrich!" crlf)
+)
+
 (deffunction play ()
    (printline "welcome to 20 qs")
+   (reset)
    (run)
 )
