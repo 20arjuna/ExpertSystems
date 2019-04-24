@@ -127,5 +127,5 @@
 )
 
 (deffunction getFirst (?str)
-   (return (explode$ (sub-string 1 1 ?str)))
+   (return (explode$ (lowcase (sub-string 1 1 ?str))))
 )

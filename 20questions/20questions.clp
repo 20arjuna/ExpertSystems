@@ -1,44 +1,4 @@
-/*
-** Created: February 25, 2019
-** Last Modified: April 9, 2019
-**
-** Author(s): Arjun Akkiraju,
-**            with assistance from: Dr. Eric R. Nelson
-**
-** The anagram file generates anagrams based on a word inputted by the user. All outputs
-** are printed to the console on seperate files. In order to
-** run the file, create a separate folder called "ExpertSystems"
-** and  add another subfolder titled "Anagrams". Insert this file,
-** in the "Anagrams" subfolder which has just been created.
-** To run this file, open up a Jess prompt
-** and type (batch ExpertSystems/Anagram/anagram.clp)
-** with parentheses.
-**
-**                   Functions included in this file
-**
-** slice$          - Slices the input token into a tokenized list.
-** isLessThan      - Determines if a word's length is <= to a given length.
-** getInput        - Gets user's input which they want to get anagrams of.
-** assertLetter    - Asserts a letter into the machine's working memory.
-** assertLetterList- Iterates through a list of letters and asserts each one
-**                 - using the assertLetter function.
-** createRule      - Dynamically creates a rule which prints out anagrams based on
-**                 - the user's input.
-** runAnagram      - Driver function for entire anagram file
-**
-**                   The following functions are provided in the "toolbox.clp" file **********
-**                   in the ExpertSystems subfolder in the Jess71p1 directory.      **********
-**
-** print           - prints any argument
-** printline       - print followed by a newline
-** ask             - prompt the user and read back a token
-** askline         - prompt the user and read back a line of text (a string)
-** askQuestion     - adds a question mark to the prompt used in ask
-** toChar          - given an ASCII integer value, returns the ASCII character as a string
-** boolp           - Test for boolean type
-** xor             - Exclusive-OR for two boolean values
-**
-*/
+
 
 (clear)
 (reset)
@@ -52,6 +12,11 @@
 (defrule onLandRule
    (need-onLand ?)
    =>
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
    (bind ?answer (ask "Does it live on land?"))
    (assert (onLand (getFirst ?answer)))
 )
@@ -60,6 +25,11 @@
 (defrule fishRule
   (need-fish ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a fish?"))
   (assert (fish (getFirst ?answer)))
 )
@@ -68,6 +38,11 @@
 (defrule mammalRule
   (need-mammal ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a mammal?"))
   (assert (mammal (getFirst ?answer)))
 )
@@ -76,6 +51,11 @@
 (defrule reptileRule
   (need-reptile ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a reptile?"))
   (assert (reptile (getFirst ?answer)))
 )
@@ -84,6 +64,11 @@
 (defrule molluskReptile
   (need-mollusk ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a mollusk?"))
   (assert (mollusk (getFirst ?answer)))
 )
@@ -92,6 +77,11 @@
 (defrule harmfulRule
   (need-harmful ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it harmful to humans?"))
   (assert (harmful (getFirst ?answer)))
 )
@@ -100,6 +90,11 @@
 (defrule bigRule
   (need-big ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it bigger than a human?"))
   (assert (big (getFirst ?answer)))
 )
@@ -108,6 +103,11 @@
 (defrule nemoRule
   (need-nemo ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
   (assert (nemo (getFirst ?answer)))
 )
@@ -116,6 +116,11 @@
 (defrule orangeRule
   (need-orange ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it orange?"))
   (assert (orange (getFirst ?answer)))
 )
@@ -124,6 +129,11 @@
 (defrule orangeCookedRule
   (need-orangeCooked ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it orange when cooked?"))
   (assert (orangeCooked (getFirst ?answer)))
 )
@@ -132,6 +142,11 @@
 (defrule bigRule
   (need-big ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it bigger than a human?"))
   (assert (big (getFirst ?answer)))
 )
@@ -140,6 +155,11 @@
 (defrule nemoRule
   (need-nemo ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
   (assert (nemo (getFirst ?answer)))
 )
@@ -148,6 +168,11 @@
 (defrule sharpTeethRule
   (need-sharpTeeth ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have sharp teeth?"))
   (assert (sharpTeeth (getFirst ?answer)))
 )
@@ -156,6 +181,11 @@
 (defrule electricRule
   (need-electric ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it electric?"))
   (assert (electric (getFirst ?answer)))
 )
@@ -164,6 +194,11 @@
 (defrule lightRule
   (need-light ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a light attached to it?"))
   (assert (light (getFirst ?answer)))
 )
@@ -173,6 +208,11 @@
 (defrule hornRule
   (need-horn ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a horn?"))
   (assert (horn (getFirst ?answer)))
 )
@@ -181,6 +221,11 @@
 (defrule finRule
   (need-fin ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a fin?"))
   (assert (fin (getFirst ?answer)))
 )
@@ -189,6 +234,11 @@
 (defrule dangerReptileRule
   (need-dangerReptile ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it dangerous to humans?"))
   (assert (dangerReptile (getFirst ?answer)))
 )
@@ -197,6 +247,11 @@
 (defrule vShapedRule
   (need-vShaped ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a v-shaped snout?"))
   (assert (vShaped (getFirst ?answer)))
 )
@@ -205,6 +260,11 @@
 (defrule tentaclesRule
   (need-tentacles ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have tentacles?"))
   (assert (tentacles (getFirst ?answer)))
 )
@@ -213,6 +273,11 @@
 (defrule triangleHeadRule
   (need-triangleHead ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a triangular head?"))
   (assert (triangleHead (getFirst ?answer)))
 )
@@ -221,6 +286,11 @@
 (defrule domesticatedRule
   (need-domesticated ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Has it been domesticated?"))
   (assert (domesticated (getFirst ?answer)))
 )
@@ -229,6 +299,11 @@
 (defrule rideRule
   (need-ride ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Can you ride it?"))
   (assert (ride (getFirst ?answer)))
 )
@@ -237,6 +312,11 @@
 (defrule northAmericaRule
   (need-NorthAmerica ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Can it be found in North America?"))
   (assert (NorthAmerica (getFirst ?answer)))
 )
@@ -245,6 +325,11 @@
 (defrule southAmericaRule
   (need-SouthAmerica ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Can it be found in South America?"))
   (assert (SouthAmerica (getFirst ?answer)))
 )
@@ -253,6 +338,11 @@
 (defrule petRule
   (need-pet ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a common household pet?"))
   (assert (pet (getFirst ?answer)))
 )
@@ -261,6 +351,11 @@
 (defrule pinkRule
   (need-pink ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it pink?"))
   (assert (pink (getFirst ?answer)))
 )
@@ -269,6 +364,11 @@
 (defrule africaRule
   (need-Africa ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Can it be found in Africa?"))
   (assert (Africa (getFirst ?answer)))
 )
@@ -277,6 +377,11 @@
 (defrule catRule
   (need-cat ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a cat of some kind?"))
   (assert (cat (getFirst ?answer)))
 )
@@ -285,6 +390,11 @@
 (defrule arcticRule
   (need-arctic ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it live in the arctic or antartica?"))
   (assert (arctic (getFirst ?answer)))
 )
@@ -293,6 +403,11 @@
 (defrule stripesRule
   (need-stripes ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have stripes?"))
   (assert (stripes (getFirst ?answer)))
 )
@@ -301,6 +416,11 @@
 (defrule whitefurRule
   (need-whitefur ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have whitefur?"))
   (assert (whitefur (getFirst ?answer)))
 )
@@ -309,6 +429,11 @@
 (defrule bearRule
   (need-bear ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a bear of some kind?"))
   (assert (bear (getFirst ?answer)))
 )
@@ -317,6 +442,11 @@
 (defrule longneckRule
   (need-longneck ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a long neck?"))
   (assert (longneck (getFirst ?answer)))
 )
@@ -325,6 +455,11 @@
 (defrule maineRule
   (need-maine ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a maine?"))
   (assert (maine (getFirst ?answer)))
 )
@@ -333,6 +468,11 @@
 (defrule primateRule
   (need-primate ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a primate?"))
   (assert (primate (getFirst ?answer)))
 )
@@ -341,6 +481,11 @@
 (defrule speedRule
   (need-speed ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is known for its speed?"))
   (assert (speed (getFirst ?answer)))
 )
@@ -349,6 +494,11 @@
 (defrule jaguarRule
   (need-jaguar ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a jaguar?"))
   (assert (jaguar (getFirst ?answer)))
 )
@@ -357,6 +507,11 @@
 (defrule bigEarsRule
   (need-bigEars ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have big ears?"))
   (assert (bigEars (getFirst ?answer)))
 )
@@ -365,6 +520,11 @@
 (defrule changeColorRule
   (need-changecolor ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it change color?"))
   (assert (changecolor (getFirst ?answer)))
 )
@@ -373,6 +533,11 @@
 (defrule shellRule
   (need-shell ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it have a shell?"))
   (assert (shell (getFirst ?answer)))
 )
@@ -381,22 +546,25 @@
 (defrule birdRule
   (need-bird ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it a bird of some kind?"))
   (assert (bird (getFirst ?answer)))
 )
 
-(do-backward-chaining sports)
-(defrule sportsRule
-  (need-sports ?)
-  =>
-  (bind ?answer (ask "Is it the logo of a major US sports team?"))
-  (assert (sports (getFirst ?answer)))
-)
 
 (do-backward-chaining fly)
 (defrule flyRule
   (need-fly ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Does it fly?"))
   (assert (fly (getFirst ?answer)))
 )
@@ -405,6 +573,11 @@
 (defrule blueRule
   (need-cat ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it blue?"))
   (assert (blue (getFirst ?answer)))
 )
@@ -413,6 +586,11 @@
 (defrule redRule
   (need-red ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it red?"))
   (assert (red (getFirst ?answer)))
 )
@@ -421,6 +599,11 @@
 (defrule nationalBirdRule
   (need-nationalBird ?)
   =>
+  (bind ?*questionNum* (+ ?*questionNum* 1))
+  (print "Question ")
+  (print "#")
+  (print ?*questionNum*)
+  (print ": ")
   (bind ?answer (ask "Is it the US National Bird?"))
   (assert (nationalBird (getFirst ?answer)))
 )
@@ -432,13 +615,13 @@
    (reptile n)
    (mollusk n)
    =>
-   (printout "I give up!" crlf)
+   (printout t "I give up!" crlf)
+   (halt)
 )
 (defrule salmon
    (onLand n)
    (fish y)
    (harmful n)
-   (big n)
    (nemo n)
    (orangeCooked y)
    =>
@@ -449,7 +632,7 @@
    (onLand n)
    (fish y)
    (harmful n)
-   (big n)
+
    (nemo n)
    (orangeCooked n)
    =>
@@ -460,7 +643,7 @@
    (onLand n)
    (fish y)
    (harmful n)
-   (big n)
+
    (nemo y)
    (orange n)
    =>
@@ -471,7 +654,7 @@
    (onLand n)
    (fish y)
    (harmful n)
-   (big n)
+
    (nemo y)
    (orange y)
    =>
@@ -572,6 +755,7 @@
    (fin y)
    =>
    (printout t "It's a dolphin!" crlf)
+   (halt)
 )
 
 (defrule SeaTurtle
@@ -947,9 +1131,12 @@
    =>
    (printout t "It's an ostrich!" crlf)
 )
-
 (deffunction play ()
-   (printline "welcome to 20 qs")
+   (printline "**** Think of an animal game ****")
+   (printline "Think of an animal and answer the following questions!")
+   (printline "Only respond in words starting 'y' for yes and 'n' for no.")
+   (printline "All other input will close the program.")
+   (printline "The program will use no more than 8 attempts to guess the animal.")
    (reset)
    (run)
 )
