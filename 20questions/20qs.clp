@@ -21,38 +21,9 @@
 (do-backward-chaining danger)
 (defrule dangerRule
   (need-danger ?)
-  (or (onLand n) (onLand y))
+
   =>
   (bind ?land (ask "Is it dangerous?"))
   (assert (danger (getFirst ?land)))
 )
-
-
-(defrule dog
-    (onLand y)
-    (yellow n)
-    =>
-    (printout t "dog!" crlf)
-)
-(defrule duck
-    (onLand y)
-    (yellow y)
-    =>
-    (printout t "duck!" crlf)
-)
-(defrule shark
-    (onLand n)
-    (danger y)
-    =>
-    (printout t "shark!" crlf)
-)
-(defrule fish
-    (onLand n)
-    (danger n)
-    =>
-    (printout t "fish!" crlf)
-)
-(deffunction play ()
-  (print "welcome to 20 qs")
-  (run)
-)
+(run)

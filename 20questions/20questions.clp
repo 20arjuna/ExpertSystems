@@ -48,22 +48,17 @@
 (defglobal ?*questionNum* = 0) ;global variable used to find which numbered question is being answered
 
 (do-backward-chaining onLand)
+(do-backward-chaining fish)
 (defrule onLandRule
    (need-onLand ?)
    =>
-   (bind ?*MAX_LETTERS* (+ ?*MAX_LETTERS* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*MAX_LETTERS*)
-   (print ": ")
    (bind ?answer (ask "Does it live on land?"))
    (assert (onLand (getFirst ?answer)))
 )
 
-(do-backward-chaining fish)
+
 (defrule fishRule
   (need-fish ?)
-  (onLand n)
   =>
   (bind ?answer (ask "Is it a fish?"))
   (assert (fish (getFirst ?answer)))
@@ -72,8 +67,6 @@
 (do-backward-chaining mammal)
 (defrule mammalRule
   (need-mammal ?)
-  (onLand n)
-  (fish n)
   =>
   (bind ?answer (ask "Is it a mammal?"))
   (assert (mammal (getFirst ?answer)))
@@ -82,9 +75,6 @@
 (do-backward-chaining reptile)
 (defrule reptileRule
   (need-reptile ?)
-  (onLand n)
-  (fish n)
-  (mammal n)
   =>
   (bind ?answer (ask "Is it a reptile?"))
   (assert (reptile (getFirst ?answer)))
@@ -93,30 +83,14 @@
 (do-backward-chaining mollusk)
 (defrule molluskReptile
   (need-mollusk ?)
-  (onLand n)
-  (fish n)
-  (mammal n)
-  (reptile n)
   =>
   (bind ?answer (ask "Is it a mollusk?"))
   (assert (mollusk (getFirst ?answer)))
 )
 
-(defrule giveUp
-  (onLand n)
-  (fish n)
-  (mammal n)
-  (reptile n)
-  =>
-  (println "I give up!")
-  (halt)
-)
-
 (do-backward-chaining harmful)
 (defrule harmfulRule
   (need-harmful ?)
-  (onLand n)
-  (fish y)
   =>
   (bind ?answer (ask "Is it harmful to humans?"))
   (assert (harmful (getFirst ?answer)))
@@ -125,46 +99,6 @@
 (do-backward-chaining big)
 (defrule bigRule
   (need-big ?)
-  (onLand n)
-  (fish y)
-  (harmful n)
-  =>
-  (bind ?answer (ask "Is it bigger than a human?"))
-  (assert (big (getFirst ?answer)))
-)
-
-(do-backward-chaining nemo)
-(defrule harmfulRule
-  (need-nemo ?)
-  (onLand n)
-  (fish y)
-  (harmful n)
-  (big n)
-  =>
-  (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
-  (assert (nemo (getFirst ?answer)))
-)
-
-
-(do-backward-chaining orangeCooked)
-(defrule harmfulRule
-  (need-orangeCooked ?)
-  (onLand n)
-  (fish y)
-  (harmful n)
-  (big n)
-  (nemo n)
-  =>
-  (bind ?answer (ask "Is it orange when cooked?"))
-  (assert (orangeCooked (getFirst ?answer)))
-)
-
-(do-backward-chaining big)
-(defrule bigRule
-  (need-big ?)
-  (onLand n)
-  (fish y)
-  (harmful y)
   =>
   (bind ?answer (ask "Is it bigger than a human?"))
   (assert (big (getFirst ?answer)))
@@ -173,10 +107,38 @@
 (do-backward-chaining nemo)
 (defrule nemoRule
   (need-nemo ?)
-  (onLand n)
-  (fish y)
-  (harmful y)
-  (big n)
+  =>
+  (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
+  (assert (nemo (getFirst ?answer)))
+)
+
+(do-backward-chaining orange)
+(defrule orangeRule
+  (need-orange ?)
+  =>
+  (bind ?answer (ask "Is it orange?"))
+  (assert (orange (getFirst ?answer)))
+)
+
+(do-backward-chaining orangeCooked)
+(defrule orangeCookedRule
+  (need-orangeCooked ?)
+  =>
+  (bind ?answer (ask "Is it orange when cooked?"))
+  (assert (orangeCooked (getFirst ?answer)))
+)
+
+(do-backward-chaining big)
+(defrule bigRule
+  (need-big ?)
+  =>
+  (bind ?answer (ask "Is it bigger than a human?"))
+  (assert (big (getFirst ?answer)))
+)
+
+(do-backward-chaining nemo)
+(defrule nemoRule
+  (need-nemo ?)
   =>
   (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
   (assert (nemo (getFirst ?answer)))
@@ -185,11 +147,6 @@
 (do-backward-chaining sharpTeeth)
 (defrule sharpTeethRule
   (need-sharpTeeth ?)
-  (onLand n)
-  (fish y)
-  (harmful y)
-  (big n)
-  (nemo n)
   =>
   (bind ?answer (ask "Does it have sharp teeth?"))
   (assert (sharpTeeth (getFirst ?answer)))
@@ -198,13 +155,6 @@
 (do-backward-chaining electric)
 (defrule electricRule
   (need-sharpTeeth ?)
-  (onLand n)
-  (fish y)
-  (harmful y)
-  (big n)
-  (nemo n)
-  (sharpTeeth y)
-  (electric y)
   =>
   (bind ?answer (ask "Is it electric?"))
   (assert (electric (getFirst ?answer)))
@@ -213,9 +163,6 @@
 (do-backward-chaining tusks)
 (defrule tuskRule
   (need-tusk ?)
-  (onLand n)
-  (fish n)
-  (mammal y)
   =>
   (bind ?answer (ask "Does it have tusks?"))
   (assert (tusks (getFirst ?answer)))
@@ -224,24 +171,85 @@
 (do-backward-chaining horn)
 (defrule hornRule
   (need-horn ?)
-  (onLand n)
-  (fish n)
-  (mammal y)
-  (tusks n)
   =>
   (bind ?answer (ask "Does it have a horn?"))
   (assert (horn (getFirst ?answer)))
 )
 
-(do-backward-chaining tusks)
-(defrule tuskRule
-  (need-tusk ?)
-  (onLand n)
-  (fish n)
-  (mammal y)
-  (tusks n)
-  (horn n)
+(do-backward-chaining fin)
+(defrule finRule
+  (need-fin ?)
   =>
-  (bind ?answer (ask "Does it have tusks?"))
-  (assert (tusks (getFirst ?answer)))
+  (bind ?answer (ask "Does it have a fin?"))
+  (assert (fin (getFirst ?answer)))
+)
+
+(do-backward-chaining dangerReptile)
+(defrule dangerReptileRule
+  (need-dangerReptile ?)
+  =>
+  (bind ?answer (ask "Is it dangerous to humans?"))
+  (assert (dangerReptile (getFirst ?answer)))
+)
+
+(do-backward-chaining vShaped)
+(defrule vShapedRule
+  (need-vShaped ?)
+  =>
+  (bind ?answer (ask "Does it have a v-shaped snout?"))
+  (assert (vShaped (getFirst ?answer)))
+)
+
+(do-backward-chaining tentacles)
+(defrule tentaclesRule
+  (need-tentacles ?)
+  =>
+  (bind ?answer (ask "Does it have tentacles?"))
+  (assert (tentacles (getFirst ?answer)))
+)
+
+(do-backward-chaining triangleHead)
+(defrule triangleHeadRule
+  (need-triangleHead ?)
+  =>
+  (bind ?answer (ask "Does it have a triangular head?"))
+  (assert (triangleHead (getFirst ?answer)))
+)
+
+(defrule salmon
+   (onLand n)
+   (fish y)
+   (harmful n)
+   (big n)
+   (nemo n)
+   (orangeCooked y)
+   =>
+   (printout t "It's a salmon!" crlf)
+)
+
+(defrule tuna
+   (onLand n)
+   (fish y)
+   (harmful n)
+   (big n)
+   (nemo n)
+   (orangeCooked n)
+   =>
+   (printout t "It's a tuna!" crlf)
+)
+
+(defrule BlueTang
+   (onLand n)
+   (fish y)
+   (harmful n)
+   (big n)
+   (nemo y)
+   (orangeCooked y)
+   =>
+   (printout t "It's a salmon!" crlf)
+)
+
+(deffunction play ()
+   (printline "welcome to 20 qs")
+   (run)
 )
