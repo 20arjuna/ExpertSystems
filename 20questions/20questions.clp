@@ -30,6 +30,52 @@
 (defglobal ?*questionNum* = 0) ;global variable used to find which numbered question is being answered
 
 
+
+/*
+** Checks to see if the user's input is valid. Valid input is defined as
+** a string which starts with either y to signal yes, and n to signal no.
+** The algorithm first checks if the input is a number or not. Then it checks
+** to see if the first letter of the user's input matches either y or n.
+** If it does, the function returns true. If not, it returns false.
+**
+** Argument: ?n   The input token being validated
+** Returns:       True if the token is valid; otherwise,
+**                False
+*/
+(deffunction validate (?n)
+   (if (numberp ?n) then
+     (bind ?answer FALSE)
+
+   elif (and(notEqual (str-compare (lowcase (sub-string 1 1 ?n)) y ) 0)
+           (notEqual (str-compare (lowcase (sub-string 1 1 ?n)) n ) 0)) then
+
+     (bind ?answer FALSE)
+   else
+     (bind ?answer TRUE)
+   )
+   (return ?answer)
+)
+
+/*
+** This function serves as the driver function for the 20questions file.
+** This is the function a user calls to start the game and it prints out
+** relevant instructuions/information about the program and also uses the
+** (reset) function to remove all facts from working memory and the (run)
+** function to run the rule engine.
+**
+*/
+(deffunction play ()
+  (printline "**** Think of an animal game ****")
+  (printline "Think of an animal and answer the following questions!")
+  (printline "Only respond in words starting 'y' for yes and 'n' for no.")
+  (printline "All other input will close the program.")
+  (printline "The program will use no more than 8 attempts to guess the animal.")
+  (reset)
+  (run)
+  (return)
+)
+
+
 /*
 ** The following rules all fallow the same algorithm. All are backward-chained for an
 ** attribute, such as white fur or sharp teeth. Each rule first prints the question
@@ -1331,48 +1377,4 @@
    (fly n)
     =>
    (printout t "It's an ostrich!" crlf)
-)
-
-/*
-** Checks to see if the user's input is valid. Valid input is defined as
-** a string which starts with either y to signal yes, and n to signal no.
-** The algorithm first checks if the input is a number or not. Then it checks
-** to see if the first letter of the user's input matches either y or n.
-** If it does, the function returns true. If not, it returns false.
-**
-** Argument: ?n   The input token being validated
-** Returns:       True if the token is valid; otherwise,
-**                False
-*/
-(deffunction validate (?n)
-   (if (numberp ?n) then
-     (bind ?answer FALSE)
-
-   elif (and(notEqual (str-compare (lowcase (sub-string 1 1 ?n)) y ) 0)
-           (notEqual (str-compare (lowcase (sub-string 1 1 ?n)) n ) 0)) then
-
-     (bind ?answer FALSE)
-   else
-     (bind ?answer TRUE)
-   )
-   (return ?answer)
-)
-
-/*
-** This function serves as the driver function for the 20questions file.
-** This is the function a user calls to start the game and it prints out
-** relevant instructuions/information about the program and also uses the
-** (reset) function to remove all facts from working memory and the (run)
-** function to run the rule engine.
-**
-*/
-(deffunction play ()
-  (printline "**** Think of an animal game ****")
-  (printline "Think of an animal and answer the following questions!")
-  (printline "Only respond in words starting 'y' for yes and 'n' for no.")
-  (printline "All other input will close the program.")
-  (printline "The program will use no more than 8 attempts to guess the animal.")
-  (reset)
-  (run)
-  (return)
 )
