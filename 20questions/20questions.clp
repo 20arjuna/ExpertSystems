@@ -59,7 +59,7 @@
 /*
 ** This function serves as the driver function for the 20questions file.
 ** This is the function a user calls to start the game and it prints out
-** relevant instructuions/information about the program and also uses the
+** relevant instructions/information about the program and also uses the
 ** (reset) function to remove all facts from working memory and the (run)
 ** function to run the rule engine.
 **
@@ -88,7 +88,55 @@
 ** or (pink-skin n) depending on the user's input. Specific details about each rule
 ** are provided in the (defrule) construct.
 */
-(do-backward-chaining onLand)
+
+;Sets up backward chaining of the question rules. Further description
+;for each of the instnces below are provided in the below question rules.
+
+(do-backward-chaining onLand)                       ;establishes backward chaining for the onLand question
+(do-backward-chaining fish)                         ;establishes backward chaining for the fish question
+(do-backward-chaining mammal)                       ;establishes backward chaining for the mammal question
+(do-backward-chaining reptile)                      ;establishes backward chaining for the repitle question
+(do-backward-chaining mollusk)                      ;establishes backward chaining for the mollusk question
+(do-backward-chaining harmful)                      ;establishes backward chaining for the harmful question
+(do-backward-chaining big)                          ;establishes backward chaining for the big question
+(do-backward-chaining nemo)                         ;establishes backward chaining for the nemo question
+(do-backward-chaining orange)                       ;establishes backward chaining for the orange question
+(do-backward-chaining orangeCooked)                 ;establishes backward chaining for the orangecooked question
+(do-backward-chaining sharpTeeth)                   ;establishes backward chaining for the sharpTeeth question
+(do-backward-chaining electric)                     ;establishes backward chaining for the electric question
+(do-backward-chaining light)                        ;establishes backward chaining for the light question
+(do-backward-chaining horn)                         ;establishes backward chaining for the horn question
+(do-backward-chaining fin)                          ;establishes backward chaining for the fin question
+(do-backward-chaining dangerReptile)                ;establishes backward chaining for the dangerReptile question
+(do-backward-chaining vShaped)                      ;establishes backward chaining for the vShaped question
+(do-backward-chaining tentacles)                    ;establishes backward chaining for the tentacles question
+(do-backward-chaining triangleHead)                 ;establishes backward chaining for the triangleHead question
+(do-backward-chaining domesticated)                 ;establishes backward chaining for the domesticated question
+(do-backward-chaining ride)                         ;establishes backward chaining for the ride question
+(do-backward-chaining NorthAmerica)                 ;establishes backward chaining for the NorthAmerica question
+(do-backward-chaining SouthAmerica)                 ;establishes backward chaining for the SouthAmerica question
+(do-backward-chaining pet)                          ;establishes backward chaining for the pet question
+(do-backward-chaining pink)                         ;establishes backward chaining for the pink question
+(do-backward-chaining Africa)                       ;establishes backward chaining for the Africa question
+(do-backward-chaining cat)                          ;establishes backward chaining for the cat question
+(do-backward-chaining arctic)                       ;establishes backward chaining for the arctic question
+(do-backward-chaining stripes)                      ;establishes backward chaining for the stripes question
+(do-backward-chaining whitefur)                     ;establishes backward chaining for the whitefur question
+(do-backward-chaining bear)                         ;establishes backward chaining for the bear question
+(do-backward-chaining longneck)                     ;establishes backward chaining for the longneck question
+(do-backward-chaining maine)                        ;establishes backward chaining for the maine question
+(do-backward-chaining primate)                      ;establishes backward chaining for the primate question
+(do-backward-chaining speed)                        ;establishes backward chaining for the speed question
+(do-backward-chaining jaguar)                       ;establishes backward chaining for the jaguar question
+(do-backward-chaining bigEars)                      ;establishes backward chaining for the bigEars question
+(do-backward-chaining changecolor)                  ;establishes backward chaining for the changecolor question
+(do-backward-chaining shell)                        ;establishes backward chaining for the shell question
+(do-backward-chaining bird)                         ;establishes backward chaining for the bird question
+(do-backward-chaining fly)                          ;establishes backward chaining for the fly question
+(do-backward-chaining blue)                         ;establishes backward chaining for the blue question
+(do-backward-chaining red)                          ;establishes backward chaining for the red question
+(do-backward-chaining nationalBird)                 ;establishes backward chaining for the nationalBird question
+
 (defrule onLandRule "Asks if animal lives on land"
    (need-onLand ?)
     =>
@@ -105,7 +153,6 @@
   (assert (onLand (getFirst ?answer)))
 )
 
-(do-backward-chaining fish)
 (defrule fishRule "Asks if animal is a fish"
    (need-fish ?)
    =>
@@ -122,7 +169,6 @@
    (assert (fish (getFirst ?answer)))
 )
 
-(do-backward-chaining mammal)
 (defrule mammalRule "Asks if animal is a mammal"
    (need-mammal ?)
    =>
@@ -139,7 +185,6 @@
    (assert (mammal (getFirst ?answer)))
 )
 
-(do-backward-chaining reptile)
 (defrule reptileRule "Asks if animal is a reptile"
    (need-reptile ?)
    =>
@@ -156,7 +201,6 @@
   (assert (reptile (getFirst ?answer)))
 )
 
-(do-backward-chaining mollusk)
 (defrule molluskReptile "Asks if animal is a mollusk"
    (need-mollusk ?)
    =>
@@ -173,7 +217,6 @@
   (assert (mollusk (getFirst ?answer)))
 )
 
-(do-backward-chaining harmful)
 (defrule harmfulRule "Asks if animal is harmful"
    (need-harmful ?)
    =>
@@ -190,7 +233,6 @@
   (assert (harmful (getFirst ?answer)))
 )
 
-(do-backward-chaining big)
 (defrule bigRule "Asks if animal is bigger than human"
    (need-big ?)
    =>
@@ -207,7 +249,6 @@
   (assert (big (getFirst ?answer)))
 )
 
-(do-backward-chaining nemo)
 (defrule nemoRule "Asks if animal is in the movie Finding Nemo"
    (need-nemo ?)
    =>
@@ -224,7 +265,6 @@
    (assert (nemo (getFirst ?answer)))
 )
 
-(do-backward-chaining orange)
 (defrule orangeRule "Asks if animal is orange"
    (need-orange ?)
    =>
@@ -241,7 +281,6 @@
    (assert (orange (getFirst ?answer)))
 )
 
-(do-backward-chaining orangeCooked)
 (defrule orangeCookedRule "Asks if animal is orange when cooked"
    (need-orangeCooked ?)
    =>
@@ -258,7 +297,6 @@
    (assert (orangeCooked (getFirst ?answer)))
 )
 
-(do-backward-chaining sharpTeeth)
 (defrule sharpTeethRule "Asks if animal has sharp teeth"
    (need-sharpTeeth ?)
    =>
@@ -275,7 +313,6 @@
    (assert (sharpTeeth (getFirst ?answer)))
 )
 
-(do-backward-chaining electric)
 (defrule electricRule "Asks if animal is electric"
    (need-electric ?)
    =>
@@ -292,7 +329,6 @@
    (assert (electric (getFirst ?answer)))
 )
 
-(do-backward-chaining light)
 (defrule lightRule "Asks if animal has light attached"
    (need-light ?)
    =>
@@ -310,7 +346,6 @@
 )
 
 
-(do-backward-chaining horn)
 (defrule hornRule "Asks if animal has a horn"
    (need-horn ?)
    =>
@@ -327,7 +362,6 @@
    (assert (horn (getFirst ?answer)))
 )
 
-(do-backward-chaining fin)
 (defrule finRule "Asks if animal has a fin"
    (need-fin ?)
    =>
@@ -344,7 +378,6 @@
    (assert (fin (getFirst ?answer)))
 )
 
-(do-backward-chaining dangerReptile)
 (defrule dangerReptileRule "Asks is dangerous"
    (need-dangerReptile ?)
    =>
@@ -361,7 +394,6 @@
    (assert (dangerReptile (getFirst ?answer)))
 )
 
-(do-backward-chaining vShaped)
 (defrule vShapedRule "Asks if animal has a vshaped snout"
    (need-vShaped ?)
    =>
@@ -378,7 +410,6 @@
    (assert (vShaped (getFirst ?answer)))
 )
 
-(do-backward-chaining tentacles)
 (defrule tentaclesRule "Asks if animal has tentacles"
    (need-tentacles ?)
    =>
@@ -395,7 +426,6 @@
    (assert (tentacles (getFirst ?answer)))
 )
 
-(do-backward-chaining triangleHead)
 (defrule triangleHeadRule "Asks if animal has a triangular head"
    (need-triangleHead ?)
    =>
@@ -412,7 +442,6 @@
    (assert (triangleHead (getFirst ?answer)))
 )
 
-(do-backward-chaining domesticated)
 (defrule domesticatedRule "Asks if animal is domesticated"
    (need-domesticated ?)
    =>
@@ -429,7 +458,6 @@
    (assert (domesticated (getFirst ?answer)))
 )
 
-(do-backward-chaining ride)
 (defrule rideRule "Asks if animal can be ridden"
    (need-ride ?)
    =>
@@ -446,7 +474,6 @@
    (assert (ride (getFirst ?answer)))
 )
 
-(do-backward-chaining NorthAmerica)
 (defrule northAmericaRule "Asks if animal is found in north america"
    (need-NorthAmerica ?)
    =>
@@ -463,7 +490,6 @@
    (assert (NorthAmerica (getFirst ?answer)))
 )
 
-(do-backward-chaining SouthAmerica)
 (defrule southAmericaRule "Asks if animal is found in south america"
    (need-SouthAmerica ?)
    =>
@@ -480,7 +506,6 @@
    (assert (SouthAmerica (getFirst ?answer)))
 )
 
-(do-backward-chaining pet)
 (defrule petRule "Asks if animal can be a pet"
    (need-pet ?)
    =>
@@ -497,7 +522,6 @@
    (assert (pet (getFirst ?answer)))
 )
 
-(do-backward-chaining pink)
 (defrule pinkRule  "Asks if animal is pink"
    (need-pink ?)
    =>
@@ -514,7 +538,6 @@
    (assert (pink (getFirst ?answer)))
 )
 
-(do-backward-chaining Africa)
 (defrule africaRule  "Asks if animal is african"
    (need-Africa ?)
    =>
@@ -531,7 +554,6 @@
    (assert (Africa (getFirst ?answer)))
 )
 
-(do-backward-chaining cat)
 (defrule catRule  "Asks if animal is a wild cat"
    (need-cat ?)
    =>
@@ -548,7 +570,6 @@
    (assert (cat (getFirst ?answer)))
 )
 
-(do-backward-chaining arctic)
 (defrule arcticRule  "Asks if animal lives in arctic"
    (need-arctic ?)
    =>
@@ -565,7 +586,6 @@
    (assert (arctic (getFirst ?answer)))
 )
 
-(do-backward-chaining stripes)
 (defrule stripesRule  "Asks if animal has stripes"
    (need-stripes ?)
    =>
@@ -582,7 +602,6 @@
    (assert (stripes (getFirst ?answer)))
 )
 
-(do-backward-chaining whitefur)
 (defrule whitefurRule  "Asks if animal has white fur"
    (need-whitefur ?)
    =>
@@ -599,7 +618,6 @@
    (assert (whitefur (getFirst ?answer)))
 )
 
-(do-backward-chaining bear)
 (defrule bearRule  "Asks if animal is a bear of some kind"
    (need-bear ?)
    =>
@@ -616,7 +634,6 @@
    (assert (bear (getFirst ?answer)))
 )
 
-(do-backward-chaining longneck)
 (defrule longneckRule  "Asks if animal has a long neck"
    (need-longneck ?)
    =>
@@ -633,7 +650,6 @@
    (assert (longneck (getFirst ?answer)))
 )
 
-(do-backward-chaining maine)
 (defrule maineRule  "Asks if animal has a maine"
    (need-maine ?)
    =>
@@ -650,7 +666,6 @@
    (assert (maine (getFirst ?answer)))
 )
 
-(do-backward-chaining primate)
 (defrule primateRule  "Asks if animal is a primate"
    (need-primate ?)
    =>
@@ -667,7 +682,6 @@
    (assert (primate (getFirst ?answer)))
 )
 
-(do-backward-chaining speed)
 (defrule speedRule "Asks if animal is known for its speed"
    (need-speed ?)
    =>
@@ -684,7 +698,6 @@
    (assert (speed (getFirst ?answer)))
 )
 
-(do-backward-chaining jaguar)
 (defrule jaguarRule "Asks if animal is a jaguar"
    (need-jaguar ?)
    =>
@@ -701,7 +714,6 @@
    (assert (jaguar (getFirst ?answer)))
 )
 
-(do-backward-chaining bigEars)
 (defrule bigEarsRule "Asks if animal has big ears"
    (need-bigEars ?)
    =>
@@ -718,7 +730,6 @@
    (assert (bigEars (getFirst ?answer)))
 )
 
-(do-backward-chaining changecolor)
 (defrule changeColorRule "Asks if animal can change color"
    (need-changecolor ?)
    =>
@@ -735,7 +746,6 @@
    (assert (changecolor (getFirst ?answer)))
 )
 
-(do-backward-chaining shell)
 (defrule shellRule "Asks if animal has a shell"
    (need-shell ?)
    =>
@@ -752,7 +762,6 @@
    (assert (shell (getFirst ?answer)))
 )
 
-(do-backward-chaining bird)
 (defrule birdRule "Asks if animal is a bird"
    (need-bird ?)
    =>
@@ -770,7 +779,6 @@
 )
 
 
-(do-backward-chaining fly)
 (defrule flyRule "Asks if animal can fly"
    (need-fly ?)
    =>
@@ -787,7 +795,6 @@
    (assert (fly (getFirst ?answer)))
 )
 
-(do-backward-chaining blue)
 (defrule blueRule "Asks if animal is blue"
    (need-cat ?)
    =>
@@ -804,7 +811,6 @@
    (assert (blue (getFirst ?answer)))
 )
 
-(do-backward-chaining red)
 (defrule redRule "Asks if animal is red"
    (need-red ?)
    =>
@@ -821,7 +827,6 @@
    (assert (red (getFirst ?answer)))
 )
 
-(do-backward-chaining nationalBird)
 (defrule nationalBirdRule "Asks if animal is the US national bird"
    (need-nationalBird ?)
    =>
