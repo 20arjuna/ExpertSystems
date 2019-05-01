@@ -854,8 +854,8 @@
 (defrule giveUp ;Used when the user's animal falls outside the scope of the expert system's
                 ;knowlege base
    (onLand n)
-   (mammal n)
    (fish n)
+   (mammal n)
    (reptile n)
    (mollusk n)
     =>
