@@ -65,7 +65,6 @@
   (printline "**** Think of an animal game ****")
   (printline "Think of an animal and answer the following questions!")
   (printline "Only respond in words starting 'y' for yes and 'n' for no.")
-  (printline "All other input will close the program.")
   (printline "The program will use no more than 8 attempts to guess the animal.")
   (reset)
   (run)
