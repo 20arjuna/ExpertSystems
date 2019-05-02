@@ -1,6 +1,6 @@
 /*
 ** Created: April 9, 2019
-** Last Modified: May 1, 2019
+** Last Modified: May 2, 2019
 **
 ** Author(s): Arjun Akkiraju,
 **            with assistance from: Dr. Eric R. Nelson
@@ -842,7 +842,7 @@
    (assert (nationalBird (getFirst ?answer)))
 )
 
-;;;;;;;;;;;;;;;; Forward chained rules with patterns which corespond to animals in knowledge base ;;;;;;;;;;;;;;;;;;;
+; Forward chained rules with patterns which corespond to animals in knowledge base
 
 
 /*
@@ -1428,6 +1428,14 @@
    (assert (solved y))
    (printout t "It's an ostrich!" crlf)
 )
+
+/*
+** The alldone rule fires after a guess has been made. The rule
+** declares a high salience and looks for the (solved) pattern to
+** be set to yes before thanking the user for playing and telling them
+** how they can play again.
+*/
+
 (defrule alldone "Concludes the game after a guess has been made."
    (declare (salience 100))
    (solved y)
@@ -1435,6 +1443,11 @@
    (printline "Thanks for playing! Enter (play) to play again.")
 )
 
+/*
+** The giveup rule fires after a guess has been made. The rule
+** declares a low salience and looks for the (solved) pattern to
+** be set to no before giving up and telling them how they can play again.
+*/
 (defrule giveup "Concludes the game after giving up."
    (declare (salience -100))
    (not(solved y))
