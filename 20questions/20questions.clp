@@ -955,6 +955,7 @@
    (nemo y)
    (light y)
     =>
+   (assert solved)
    (printout t "It's an anglerfish!" crlf)
 )
 
@@ -1381,4 +1382,11 @@
    (fly n)
     =>
    (printout t "It's an ostrich!" crlf)
+)
+
+(defrule alldone "Concludes the game"
+   ((declare (salience 100)))
+   (solved)
+=>
+   (printline "Thanks for playing! Enter (play) to play again.")
 )
