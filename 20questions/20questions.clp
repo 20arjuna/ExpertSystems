@@ -75,6 +75,14 @@
   (return)
 )
 
+(deffunction printQuestionNum ()
+   (bind ?*questionNum* (+ ?*questionNum* 1))
+   (print "Question ")
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
+)
+
 
 /*
 ** The following rules all fallow the same algorithm. All are backward-chained for an
@@ -140,11 +148,7 @@
 (defrule onLandRule "Asks if animal lives on land"
    (need-onLand ?)
     =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
    (bind ?answer (ask "Does it live on land?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -156,11 +160,7 @@
 (defrule fishRule "Asks if animal is a fish"
    (need-fish ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
    (bind ?answer (ask "Is it a fish?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
