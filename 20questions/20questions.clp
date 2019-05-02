@@ -1,5 +1,5 @@
 /*
-** Created: March 20, 2019
+** Created: April 9, 2019
 ** Last Modified: May 1, 2019
 **
 ** Author(s): Arjun Akkiraju,
@@ -855,7 +855,6 @@
                 ;knowlege base
    (onLand n)
    (fish n)
-   (mammal n)
    (reptile n)
    (mollusk n)
     =>
