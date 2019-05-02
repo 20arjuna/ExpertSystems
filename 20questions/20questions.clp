@@ -78,9 +78,9 @@
 (deffunction printQuestionNum ()
    (bind ?*questionNum* (+ ?*questionNum* 1))
    (print "Question ")
-
-
-
+   (print "#")
+   (print ?*questionNum*)
+   (print ": ")
 )
 
 
