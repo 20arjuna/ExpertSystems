@@ -28,9 +28,6 @@
 (batch ExpertSystems/toolbox.clp)
 
 (defglobal ?*questionNum* = 0) ;global variable used to find which numbered question is being answered
-
-
-
 /*
 ** Checks to see if the user's input is valid. Valid input is defined as
 ** a string which starts with either y to signal yes, and n to signal no.
@@ -75,6 +72,12 @@
   (return)
 )
 
+/*
+** Prints the question number the expert system is asking.
+** The algorithm increments the global variable "?*questionNum*"
+** by 1 before printing out the the question number before asking
+** the question.
+*/
 (deffunction printQuestionNum ()
    (bind ?*questionNum* (+ ?*questionNum* 1))
    (print "Question ")
@@ -82,8 +85,6 @@
    (print ?*questionNum*)
    (print ": ")
 )
-
-
 /*
 ** The following rules all fallow the same algorithm. All are backward-chained for an
 ** attribute, such as white fur or sharp teeth. Each rule first prints the question
@@ -173,9 +174,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it a mammal?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -188,9 +186,6 @@
    (need-reptile ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it a reptile?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -205,9 +200,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it a mollusk?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -220,9 +212,6 @@
    (need-harmful ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it harmful to humans?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -237,9 +226,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it bigger than a human?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -252,9 +238,6 @@
    (need-nemo ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -269,9 +252,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it orange?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -284,9 +264,6 @@
    (need-orangeCooked ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it orange when cooked?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -301,9 +278,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have sharp teeth?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -316,9 +290,6 @@
    (need-electric ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it electric?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -333,25 +304,16 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have a light attached to it?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
 
    )
    (assert (light (getFirst ?answer)))
-)
-
-
-(defrule hornRule "Asks if animal has a horn"
+)(defrule hornRule "Asks if animal has a horn"
    (need-horn ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it have a horn?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -366,9 +328,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have a fin?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -381,9 +340,6 @@
    (need-dangerReptile ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it dangerous to humans?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -398,9 +354,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have a v-shaped snout?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -413,9 +366,6 @@
    (need-tentacles ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it have tentacles?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -430,9 +380,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have a triangular head?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -445,9 +392,6 @@
    (need-domesticated ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Has it been domesticated?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -462,9 +406,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Can you ride it?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -477,9 +418,6 @@
    (need-NorthAmerica ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Can it be found in North America?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -494,9 +432,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Can it be found in South America?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -509,9 +444,6 @@
    (need-pet ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it a common household pet?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -526,9 +458,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it pink?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -541,9 +470,6 @@
    (need-Africa ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Can it be found in Africa?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -558,9 +484,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it a cat of some kind?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -573,9 +496,6 @@
    (need-arctic ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it live in the arctic or antartica?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -590,9 +510,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have stripes?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -605,9 +522,6 @@
    (need-whitefur ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it have whitefur?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -622,9 +536,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it a bear of some kind?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -637,9 +548,6 @@
    (need-longneck ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it have a long neck?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -654,9 +562,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have a maine?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -669,9 +574,6 @@
    (need-primate ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it a primate?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -686,9 +588,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is known for its speed?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -701,9 +600,6 @@
    (need-jaguar ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it a jaguar?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -718,9 +614,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have big ears?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -733,9 +626,6 @@
    (need-changecolor ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it change color?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -750,9 +640,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Does it have a shell?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -766,9 +653,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it a bird of some kind?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -777,14 +661,10 @@
    (assert (bird (getFirst ?answer)))
 )
 
-
 (defrule flyRule "Asks if animal can fly"
    (need-fly ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Does it fly?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -799,9 +679,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it blue?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -814,9 +691,6 @@
    (need-red ?)
    =>
    (printQuestionNum)
-
-
-
 
    (bind ?answer (ask "Is it red?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -831,9 +705,6 @@
    =>
    (printQuestionNum)
 
-
-
-
    (bind ?answer (ask "Is it the US National Bird?"))
    (while (notEqual(validate ?answer) TRUE) do
       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
@@ -842,33 +713,11 @@
    (assert (nationalBird (getFirst ?answer)))
 )
 
-; Forward chained rules with patterns which corespond to animals in knowledge base
-
-
-/*
-** The following forward chained rules use the LHS to look for the asserted facts
+; Forward chained rules with patterns which corespond to animals in knowledge base/*
+** The following rules use the LHS to look for the asserted facts
 ** and then guesses the animal whose name is the name of that specific rule.
 **
 */
-(defrule giveUp ;Used when the user's animal falls outside the scope of the expert system's
-                ;knowlege base
-   (onLand n)
-   (fish n)
-   (reptile n)
-   (mollusk n)
-=>
-   (printout t "I give up!" crlf)
-   (halt)
-)
-(defrule giveUp ;Used when the user's animal falls outside the scope of the expert system's
-                ;knowlege base
-   (onLand y)
-   (mammal n)
-   (reptile n)
-=>
-   (printout t "I give up!" crlf)
-   (halt)
-)
 (defrule salmon
    (onLand n)
    (fish y)
@@ -986,10 +835,7 @@
 =>
    (assert (solved y))
    (printout t "It's a shark!" crlf)
-)
-
-
-(defrule Narwal
+)(defrule Narwal
    (onLand n)
    (fish n)
    (mammal y)
