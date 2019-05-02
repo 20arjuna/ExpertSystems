@@ -147,7 +147,7 @@
 
 (defrule onLandRule "Asks if animal lives on land"
    (need-onLand ?)
-    =>
+=>
    (printQuestionNum)
    (bind ?answer (ask "Does it live on land?"))
    (while (notEqual(validate ?answer) TRUE) do
@@ -856,7 +856,7 @@
    (fish n)
    (reptile n)
    (mollusk n)
-    =>
+=>
    (printout t "I give up!" crlf)
    (halt)
 )
@@ -865,7 +865,7 @@
    (onLand y)
    (mammal n)
    (reptile n)
-    =>
+=>
    (printout t "I give up!" crlf)
    (halt)
 )
@@ -875,7 +875,8 @@
    (harmful n)
    (nemo n)
    (orangeCooked y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a salmon!" crlf)
 )
 
@@ -886,7 +887,8 @@
 
    (nemo n)
    (orangeCooked n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a tuna!" crlf)
 )
 
@@ -897,7 +899,8 @@
 
    (nemo y)
    (orange n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a Blue Tang!" crlf)
 )
 
@@ -908,7 +911,8 @@
 
    (nemo y)
    (orange y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a Clownfish!" crlf)
 )
 
@@ -919,7 +923,8 @@
    (big n)
    (nemo n)
    (sharpTeeth n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a Blowfish!" crlf)
 )
 
@@ -931,7 +936,8 @@
    (nemo n)
    (sharpTeeth y)
    (electric n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a Piranha!" crlf)
 )
 
@@ -943,7 +949,8 @@
    (nemo n)
    (sharpTeeth y)
    (electric y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an electric eel!" crlf)
 )
 
@@ -954,7 +961,7 @@
    (big n)
    (nemo y)
    (light y)
-    =>
+=>
    (assert (solved y))
    (printout t "It's an anglerfish!" crlf)
 )
@@ -966,7 +973,8 @@
    (big n)
    (nemo y)
    (light n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a baracuda!" crlf)
 )
 
@@ -975,17 +983,19 @@
    (fish y)
    (harmful y)
    (big y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a shark!" crlf)
 )
 
 
 (defrule Narwal
-    (onLand n)
+   (onLand n)
    (fish n)
    (mammal y)
    (horn y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a narwal!" crlf)
 )
 
@@ -995,7 +1005,8 @@
    (mammal y)
    (horn n)
    (fin n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a whale!" crlf)
 )
 
@@ -1005,7 +1016,8 @@
    (mammal y)
    (horn n)
    (fin y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a dolphin!" crlf)
    (halt)
 )
@@ -1016,7 +1028,8 @@
    (mammal n)
    (reptile y)
    (dangerReptile n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a sea turtle!" crlf)
 )
 
@@ -1027,7 +1040,8 @@
    (reptile y)
    (dangerReptile y)
    (vShaped n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an aligator!" crlf)
 )
 
@@ -1038,7 +1052,8 @@
    (reptile y)
    (dangerReptile y)
    (vShaped y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a crocodile!" crlf)
 )
 
@@ -1049,7 +1064,8 @@
    (reptile n)
    (mollusk y)
    (tentacles n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a mussel!" crlf)
 )
 
@@ -1061,7 +1077,8 @@
    (mollusk y)
    (tentacles y)
    (triangleHead n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an octopus!" crlf)
 )
 
@@ -1073,7 +1090,8 @@
    (mollusk y)
    (tentacles y)
    (triangleHead y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a squid!" crlf)
 )
 
@@ -1083,7 +1101,8 @@
    (domesticated y)
    (ride y)
    (NorthAmerica y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a horse!" crlf)
 )
 
@@ -1094,7 +1113,8 @@
    (ride y)
    (NorthAmerica n)
    (SouthAmerica y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an alpaca!" crlf)
 )
 
@@ -1105,7 +1125,8 @@
    (ride y)
    (NorthAmerica n)
    (SouthAmerica n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a camel!" crlf)
 )
 
@@ -1115,7 +1136,8 @@
    (domesticated y)
    (ride n)
    (horn y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an ox!" crlf)
 )
 
@@ -1127,7 +1149,8 @@
    (horn n)
    (pet n)
    (pink n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a sheep!" crlf)
 )
 
@@ -1139,7 +1162,8 @@
    (horn n)
    (pet n)
    (pink y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a pig!" crlf)
 )
 
@@ -1150,7 +1174,8 @@
    (ride n)
    (horn n)
    (pet y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a dog!" crlf)
 )
 
@@ -1162,7 +1187,8 @@
    (Africa n)
    (arctic y)
    (whitefur y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a polar bear!" crlf)
 )
 
@@ -1174,7 +1200,8 @@
    (Africa n)
    (arctic y)
    (whitefur n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a wolf!" crlf)
 )
 
@@ -1186,7 +1213,8 @@
    (Africa n)
    (arctic n)
    (NorthAmerica y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a bear!" crlf)
 )
 
@@ -1198,7 +1226,8 @@
    (Africa y)
    (stripes n)
    (longneck y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a giraffe!" crlf)
 )
 
@@ -1209,7 +1238,8 @@
    (dangerReptile n)
    (Africa y)
    (stripes y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a zebra!" crlf)
 )
 
@@ -1221,7 +1251,8 @@
    (Africa y)
    (stripes n)
    (longneck n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a monkey!" crlf)
 )
 
@@ -1232,7 +1263,8 @@
    (dangerReptile n)
    (Africa n)
    (bear y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a panda!" crlf)
 )
 
@@ -1243,7 +1275,8 @@
    (dangerReptile n)
    (Africa n)
    (bear n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a monkey!" crlf)
 )
 
@@ -1255,7 +1288,8 @@
    (Africa y)
    (cat y)
    (maine y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a lion!" crlf)
 )
 
@@ -1268,7 +1302,8 @@
    (cat y)
    (maine n)
    (speed y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a cheetah!" crlf)
 )
 
@@ -1281,7 +1316,8 @@
    (cat y)
    (maine n)
    (speed n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a jaguar!" crlf)
 )
 
@@ -1293,7 +1329,8 @@
    (Africa y)
    (cat n)
    (primate y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a gorilla!" crlf)
 )
 
@@ -1306,7 +1343,8 @@
    (cat n)
    (primate n)
    (bigEars y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an elephant!" crlf)
 )
 
@@ -1317,7 +1355,8 @@
    (bird n)
    (changecolor n)
    (shell n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a snake!" crlf)
 )
 
@@ -1328,7 +1367,8 @@
    (bird n)
    (changecolor n)
    (shell y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a tortoise!" crlf)
 )
 
@@ -1338,7 +1378,8 @@
    (reptile y)
    (bird n)
    (changecolor y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a chameleon!" crlf)
 )
 
@@ -1348,7 +1389,8 @@
    (reptile y)
    (bird n)
    (changecolor y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a chameleon!" crlf)
 )
 
@@ -1359,7 +1401,8 @@
    (bird y)
    (fly y)
    (nationalBird y)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a bald eagle!" crlf)
 )
 
@@ -1370,7 +1413,8 @@
    (bird y)
    (fly y)
    (nationalBird n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's a falcon!" crlf)
 )
 
@@ -1380,12 +1424,20 @@
    (reptile y)
    (bird y)
    (fly n)
-    =>
+=>
+   (assert (solved y))
    (printout t "It's an ostrich!" crlf)
 )
-(defrule alldone
+(defrule alldone "Concludes the game after a guess has been made."
    (declare (salience 100))
    (solved y)
 =>
    (printline "Thanks for playing! Enter (play) to play again.")
+)
+
+(defrule giveup
+   (declare (salience -100))
+   (not(solved y))
+=>
+   (printline "I give up! Enter (play) to play again.")
 )
