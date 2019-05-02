@@ -150,9 +150,8 @@
     =>
    (printQuestionNum)
    (bind ?answer (ask "Does it live on land?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
    )
   (assert (onLand (getFirst ?answer)))
 )
