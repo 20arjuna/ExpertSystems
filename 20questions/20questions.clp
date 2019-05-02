@@ -161,9 +161,9 @@
    =>
    (printQuestionNum)
    (bind ?answer (ask "Is it a fish?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (fish (getFirst ?answer)))
 )
@@ -177,9 +177,9 @@
 
 
    (bind ?answer (ask "Is it a mammal?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (mammal (getFirst ?answer)))
 )
@@ -193,9 +193,9 @@
 
 
    (bind ?answer (ask "Is it a reptile?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
   (assert (reptile (getFirst ?answer)))
 )
@@ -209,9 +209,9 @@
 
 
    (bind ?answer (ask "Is it a mollusk?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
   (assert (mollusk (getFirst ?answer)))
 )
@@ -225,9 +225,9 @@
 
 
    (bind ?answer (ask "Is it harmful to humans?"))
-   (if (notEqual(validate ?answer) TRUE) then
-       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-       (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+       (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
   (assert (harmful (getFirst ?answer)))
 )
@@ -241,9 +241,9 @@
 
 
    (bind ?answer (ask "Is it bigger than a human?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
   (assert (big (getFirst ?answer)))
 )
@@ -257,9 +257,9 @@
 
 
    (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (nemo (getFirst ?answer)))
 )
@@ -273,9 +273,9 @@
 
 
    (bind ?answer (ask "Is it orange?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (orange (getFirst ?answer)))
 )
@@ -289,9 +289,9 @@
 
 
    (bind ?answer (ask "Is it orange when cooked?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (orangeCooked (getFirst ?answer)))
 )
@@ -305,9 +305,9 @@
 
 
    (bind ?answer (ask "Does it have sharp teeth?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (sharpTeeth (getFirst ?answer)))
 )
@@ -321,9 +321,9 @@
 
 
    (bind ?answer (ask "Is it electric?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (electric (getFirst ?answer)))
 )
@@ -337,9 +337,9 @@
 
 
    (bind ?answer (ask "Does it have a light attached to it?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (light (getFirst ?answer)))
 )
@@ -354,9 +354,9 @@
 
 
    (bind ?answer (ask "Does it have a horn?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (horn (getFirst ?answer)))
 )
@@ -370,9 +370,9 @@
 
 
    (bind ?answer (ask "Does it have a fin?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (fin (getFirst ?answer)))
 )
@@ -386,9 +386,9 @@
 
 
    (bind ?answer (ask "Is it dangerous to humans?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (dangerReptile (getFirst ?answer)))
 )
@@ -402,9 +402,9 @@
 
 
    (bind ?answer (ask "Does it have a v-shaped snout?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (vShaped (getFirst ?answer)))
 )
@@ -418,9 +418,9 @@
 
 
    (bind ?answer (ask "Does it have tentacles?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (tentacles (getFirst ?answer)))
 )
@@ -434,9 +434,9 @@
 
 
    (bind ?answer (ask "Does it have a triangular head?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (triangleHead (getFirst ?answer)))
 )
@@ -450,9 +450,9 @@
 
 
    (bind ?answer (ask "Has it been domesticated?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (domesticated (getFirst ?answer)))
 )
@@ -466,9 +466,9 @@
 
 
    (bind ?answer (ask "Can you ride it?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (ride (getFirst ?answer)))
 )
@@ -482,9 +482,9 @@
 
 
    (bind ?answer (ask "Can it be found in North America?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (NorthAmerica (getFirst ?answer)))
 )
@@ -498,9 +498,9 @@
 
 
    (bind ?answer (ask "Can it be found in South America?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (SouthAmerica (getFirst ?answer)))
 )
@@ -514,9 +514,9 @@
 
 
    (bind ?answer (ask "Is it a common household pet?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (pet (getFirst ?answer)))
 )
@@ -530,9 +530,9 @@
 
 
    (bind ?answer (ask "Is it pink?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (pink (getFirst ?answer)))
 )
@@ -546,9 +546,9 @@
 
 
    (bind ?answer (ask "Can it be found in Africa?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (Africa (getFirst ?answer)))
 )
@@ -562,9 +562,9 @@
 
 
    (bind ?answer (ask "Is it a cat of some kind?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (cat (getFirst ?answer)))
 )
@@ -578,9 +578,9 @@
 
 
    (bind ?answer (ask "Does it live in the arctic or antartica?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (arctic (getFirst ?answer)))
 )
@@ -594,9 +594,9 @@
 
 
    (bind ?answer (ask "Does it have stripes?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (stripes (getFirst ?answer)))
 )
@@ -610,9 +610,9 @@
 
 
    (bind ?answer (ask "Does it have whitefur?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (whitefur (getFirst ?answer)))
 )
@@ -626,9 +626,9 @@
 
 
    (bind ?answer (ask "Is it a bear of some kind?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (bear (getFirst ?answer)))
 )
@@ -642,9 +642,9 @@
 
 
    (bind ?answer (ask "Does it have a long neck?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (longneck (getFirst ?answer)))
 )
@@ -658,9 +658,9 @@
 
 
    (bind ?answer (ask "Does it have a maine?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (maine (getFirst ?answer)))
 )
@@ -674,9 +674,9 @@
 
 
    (bind ?answer (ask "Is it a primate?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (primate (getFirst ?answer)))
 )
@@ -690,9 +690,9 @@
 
 
    (bind ?answer (ask "Is known for its speed?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (speed (getFirst ?answer)))
 )
@@ -706,9 +706,9 @@
 
 
    (bind ?answer (ask "Is it a jaguar?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (jaguar (getFirst ?answer)))
 )
@@ -722,9 +722,9 @@
 
 
    (bind ?answer (ask "Does it have big ears?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (bigEars (getFirst ?answer)))
 )
@@ -738,9 +738,9 @@
 
 
    (bind ?answer (ask "Does it change color?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (changecolor (getFirst ?answer)))
 )
@@ -754,9 +754,9 @@
 
 
    (bind ?answer (ask "Does it have a shell?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (shell (getFirst ?answer)))
 )
@@ -770,9 +770,9 @@
 
 
    (bind ?answer (ask "Is it a bird of some kind?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (bird (getFirst ?answer)))
 )
@@ -787,9 +787,9 @@
 
 
    (bind ?answer (ask "Does it fly?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (fly (getFirst ?answer)))
 )
@@ -803,9 +803,9 @@
 
 
    (bind ?answer (ask "Is it blue?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (blue (getFirst ?answer)))
 )
@@ -819,9 +819,9 @@
 
 
    (bind ?answer (ask "Is it red?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (red (getFirst ?answer)))
 )
@@ -835,9 +835,9 @@
 
 
    (bind ?answer (ask "Is it the US National Bird?"))
-   (if (notEqual(validate ?answer) TRUE) then
-      (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
-      (halt)
+   (while (notEqual(validate ?answer) TRUE) do
+      (bind ?answer (ask "Invalid input! Enter input which either starts with 'y' or 'n': "))
+
    )
    (assert (nationalBird (getFirst ?answer)))
 )
