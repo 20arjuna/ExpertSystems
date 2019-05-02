@@ -78,9 +78,9 @@
 (deffunction printQuestionNum ()
    (bind ?*questionNum* (+ ?*questionNum* 1))
    (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+
+
+
 )
 
 
@@ -172,11 +172,11 @@
 (defrule mammalRule "Asks if animal is a mammal"
    (need-mammal ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a mammal?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -188,11 +188,11 @@
 (defrule reptileRule "Asks if animal is a reptile"
    (need-reptile ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a reptile?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -204,11 +204,11 @@
 (defrule molluskReptile "Asks if animal is a mollusk"
    (need-mollusk ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a mollusk?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -220,11 +220,11 @@
 (defrule harmfulRule "Asks if animal is harmful"
    (need-harmful ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it harmful to humans?"))
    (if (notEqual(validate ?answer) TRUE) then
        (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -236,11 +236,11 @@
 (defrule bigRule "Asks if animal is bigger than human"
    (need-big ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it bigger than a human?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -252,11 +252,11 @@
 (defrule nemoRule "Asks if animal is in the movie Finding Nemo"
    (need-nemo ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it found in the movie Finding Nemo?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -268,11 +268,11 @@
 (defrule orangeRule "Asks if animal is orange"
    (need-orange ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it orange?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -284,11 +284,11 @@
 (defrule orangeCookedRule "Asks if animal is orange when cooked"
    (need-orangeCooked ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it orange when cooked?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -300,11 +300,11 @@
 (defrule sharpTeethRule "Asks if animal has sharp teeth"
    (need-sharpTeeth ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have sharp teeth?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -316,11 +316,11 @@
 (defrule electricRule "Asks if animal is electric"
    (need-electric ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it electric?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -332,11 +332,11 @@
 (defrule lightRule "Asks if animal has light attached"
    (need-light ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a light attached to it?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -349,11 +349,11 @@
 (defrule hornRule "Asks if animal has a horn"
    (need-horn ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a horn?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -365,11 +365,11 @@
 (defrule finRule "Asks if animal has a fin"
    (need-fin ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a fin?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -381,11 +381,11 @@
 (defrule dangerReptileRule "Asks is dangerous"
    (need-dangerReptile ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it dangerous to humans?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -397,11 +397,11 @@
 (defrule vShapedRule "Asks if animal has a vshaped snout"
    (need-vShaped ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a v-shaped snout?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -413,11 +413,11 @@
 (defrule tentaclesRule "Asks if animal has tentacles"
    (need-tentacles ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have tentacles?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -429,11 +429,11 @@
 (defrule triangleHeadRule "Asks if animal has a triangular head"
    (need-triangleHead ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a triangular head?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -445,11 +445,11 @@
 (defrule domesticatedRule "Asks if animal is domesticated"
    (need-domesticated ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Has it been domesticated?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -461,11 +461,11 @@
 (defrule rideRule "Asks if animal can be ridden"
    (need-ride ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Can you ride it?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -477,11 +477,11 @@
 (defrule northAmericaRule "Asks if animal is found in north america"
    (need-NorthAmerica ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Can it be found in North America?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -493,11 +493,11 @@
 (defrule southAmericaRule "Asks if animal is found in south america"
    (need-SouthAmerica ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Can it be found in South America?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -509,11 +509,11 @@
 (defrule petRule "Asks if animal can be a pet"
    (need-pet ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a common household pet?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -525,11 +525,11 @@
 (defrule pinkRule  "Asks if animal is pink"
    (need-pink ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it pink?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -541,11 +541,11 @@
 (defrule africaRule  "Asks if animal is african"
    (need-Africa ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Can it be found in Africa?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -557,11 +557,11 @@
 (defrule catRule  "Asks if animal is a wild cat"
    (need-cat ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a cat of some kind?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -573,11 +573,11 @@
 (defrule arcticRule  "Asks if animal lives in arctic"
    (need-arctic ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it live in the arctic or antartica?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -589,11 +589,11 @@
 (defrule stripesRule  "Asks if animal has stripes"
    (need-stripes ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have stripes?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -605,11 +605,11 @@
 (defrule whitefurRule  "Asks if animal has white fur"
    (need-whitefur ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have whitefur?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -621,11 +621,11 @@
 (defrule bearRule  "Asks if animal is a bear of some kind"
    (need-bear ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a bear of some kind?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -637,11 +637,11 @@
 (defrule longneckRule  "Asks if animal has a long neck"
    (need-longneck ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a long neck?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -653,11 +653,11 @@
 (defrule maineRule  "Asks if animal has a maine"
    (need-maine ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a maine?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -669,11 +669,11 @@
 (defrule primateRule  "Asks if animal is a primate"
    (need-primate ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a primate?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -685,11 +685,11 @@
 (defrule speedRule "Asks if animal is known for its speed"
    (need-speed ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is known for its speed?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -701,11 +701,11 @@
 (defrule jaguarRule "Asks if animal is a jaguar"
    (need-jaguar ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a jaguar?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -717,11 +717,11 @@
 (defrule bigEarsRule "Asks if animal has big ears"
    (need-bigEars ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have big ears?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -733,11 +733,11 @@
 (defrule changeColorRule "Asks if animal can change color"
    (need-changecolor ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it change color?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -749,11 +749,11 @@
 (defrule shellRule "Asks if animal has a shell"
    (need-shell ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it have a shell?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -765,11 +765,11 @@
 (defrule birdRule "Asks if animal is a bird"
    (need-bird ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it a bird of some kind?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -782,11 +782,11 @@
 (defrule flyRule "Asks if animal can fly"
    (need-fly ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Does it fly?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -798,11 +798,11 @@
 (defrule blueRule "Asks if animal is blue"
    (need-cat ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it blue?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -814,11 +814,11 @@
 (defrule redRule "Asks if animal is red"
    (need-red ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it red?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
@@ -830,11 +830,11 @@
 (defrule nationalBirdRule "Asks if animal is the US national bird"
    (need-nationalBird ?)
    =>
-   (bind ?*questionNum* (+ ?*questionNum* 1))
-   (print "Question ")
-   (print "#")
-   (print ?*questionNum*)
-   (print ": ")
+   (printQuestionNum)
+
+
+
+
    (bind ?answer (ask "Is it the US National Bird?"))
    (if (notEqual(validate ?answer) TRUE) then
       (printline "Invalid input! Please follow instructions! Enter (play) to restart.")
