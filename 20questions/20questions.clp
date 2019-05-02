@@ -25,7 +25,7 @@
 (clear)
 (reset)
 
-(batch 20questions/toolbox.clp)
+(batch ExpertSystems/toolbox.clp)
 
 (defglobal ?*questionNum* = 0) ;global variable used to find which numbered question is being answered
 
