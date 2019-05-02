@@ -1435,7 +1435,7 @@
    (printline "Thanks for playing! Enter (play) to play again.")
 )
 
-(defrule giveup
+(defrule giveup "Concludes the game after giving up."
    (declare (salience -100))
    (not(solved y))
 =>
