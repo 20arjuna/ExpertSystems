@@ -864,7 +864,6 @@
 =>
    (assert (solved y))
    (printout t "It's a dolphin!" crlf)
-   (halt)
 )
 
 (defrule SeaTurtle
