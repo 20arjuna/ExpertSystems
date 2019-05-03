@@ -732,7 +732,6 @@
    (onLand n)
    (fish y)
    (harmful n)
-
    (nemo n)
    (orangeCooked n)
 =>
@@ -744,7 +743,6 @@
    (onLand n)
    (fish y)
    (harmful n)
-
    (nemo y)
    (orange n)
 =>
@@ -756,7 +754,6 @@
    (onLand n)
    (fish y)
    (harmful n)
-
    (nemo y)
    (orange y)
 =>
@@ -834,7 +831,9 @@
 =>
    (assert (solved y))
    (printout t "It's a shark!" crlf)
-)(defrule Narwal
+)
+
+(defrule Narwal
    (onLand n)
    (fish n)
    (mammal y)
