@@ -15,7 +15,7 @@
   (print ?*MAX_LETTERS*)
   (print ": ")
   (bind ?land (ask "Does it live on land?"))
-  (assert (onLand (getFirst ?land)))
+  (assert (onLand (getFirst ?land))) 
 )
 
 (do-backward-chaining danger)
