@@ -10,7 +10,8 @@
     },
     "permissions": [
       "webNavigation",
-      "tabs"
+      "tabs",
+      "nativeMessaging"
     ]
 
   }
