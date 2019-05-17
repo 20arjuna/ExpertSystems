@@ -1,21 +1,17 @@
 {
     "name": "TOSbot",
-    "version": "1.0",
+    "version": "2.0",
     "description": "Analyzes the terms of service of the websites you vist so you don't have to.",
     "manifest_version": 2,
-    "browser_action":{"default_icon": "icon.png"},
-    "content_scripts": [
-  		{
-  			"matches": ["http://*/*", "https://*/*"],
-  			"run_at": "document_idle",
-  			"js": ["contentScripts.js"]
-  		}
-  	],
-  	"background": {
-  		"scripts": ["background.js"],
-  		"persistent": false
-  	},
+    "browser_action":
+    {
+      "default_icon": "static/icon.png",
+      "default_popup": "templates/popup.html"
+    },
+
     "permissions": [
+      "webNavigation",
+      "tabs",
       "nativeMessaging"
     ]
 
