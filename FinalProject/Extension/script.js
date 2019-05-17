@@ -7,6 +7,10 @@ chrome.tabs.getSelected(null,function(tab) {
 
 
 });
+
+function runOnPython() {
+    window.open("__pycache__/emailAlumni.cpython-36.pyc");
+}
 document.getElementById("analyze").addEventListener("click", function onClick(){
   fetch("http://127.0.0.1:5000/mainTOSBOT", {
     method: "POST",
