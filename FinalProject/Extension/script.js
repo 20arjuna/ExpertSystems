@@ -9,24 +9,24 @@ chrome.tabs.getSelected(null,function(tab) {
 });
 
 function runOnPython() {
-    window.open("__pycache__/emailAlumni.cpython-36.pyc");
+    window.open("emailAlumni.cpython-36.pyc");
 }
-document.getElementById("analyze").addEventListener("click", function onClick(){
-  fetch("http://127.0.0.1:5000/mainTOSBOT", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      "sitename": site
-    })
-  }).then(function (response) {
-    console.log(response);
-  }).catch(function(err) {
-    console.error(err);
-  })
-});
+// document.getElementById("analyze").addEventListener("click", function onClick(){
+//   fetch("http://127.0.0.1:5000/mainTOSBOT", {
+//     method: "POST",
+//     mode: "no-cors",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       "sitename": site
+//     })
+//   }).then(function (response) {
+//     console.log(response);
+//   }).catch(function(err) {
+//     console.error(err);
+//   })
+// });
 // function loading()
 // {
 //   console.log("Loading baby");
