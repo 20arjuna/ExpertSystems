@@ -1,9 +1,0 @@
-{
-	"name": "TOSbot.native.app",
-	"description": "Native API to communicate with python backend",
-	"path": "/Users/20arjuna/Desktop/Jess71p1/ExpertSystems/FinalProject/Extension/cppapp/app",
-	"type": "stdio",
-	"allowed_origins": [
-		"chrome-extension://nmammijkbnhillkojjfncggfjcbjggmb/"
-	]
-}
