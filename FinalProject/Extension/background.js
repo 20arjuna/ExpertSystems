@@ -9,8 +9,8 @@ chrome.runtime.onMessage.addListener(
 			///////////////////////////////
 			// connect to the native app //
 			///////////////////////////////
-			var port = chrome.runtime.connectNative("TOSbot.native.app.json")
-
+			var port = chrome.runtime.connectNative("TOSbot.native.app")
+      console.log()
 			//////////////////////////////////////
 			// send a message to the native app //
 			//////////////////////////////////////

@@ -1,8 +1,9 @@
-var button = document.getElementById("button");
+var button = document.getElementById("button")
 button.addEventListener
 (
   "click", function()
   {
+    console.log("shit")
     chrome.runtime.sendMessage
     (
       {
