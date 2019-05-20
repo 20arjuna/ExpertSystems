@@ -1,9 +1,0 @@
-{
-	"name": "TOSbot.native.app",
-	"description": "Native App json file for TOSbot",
-	"path": "/Users/20arjuna/Desktop/Jess71p1/ExpertSystems/FinalProject/Extension/analyze.py"
-	"type": "stdio",
-	"allowed_origins": [
-		"chome-extension://nmammijkbnhillkojjfncggfjcbjggmb/"
-	]
-}
