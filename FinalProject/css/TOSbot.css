@@ -1,0 +1,45 @@
+body
+{
+  min-width: 300px; /* your desired width */
+  max-width: 100%;
+  position: relative;
+  vertical-align:middle;
+  background-color: black;
+}
+img
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+h1
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color:white;
+}
+h3
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color:white;
+}
+h4
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color:white;
+}
+form
+{
+  margin: 0 auto;
+  color:black;
+  width:200px;
+}
