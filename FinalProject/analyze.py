@@ -22,7 +22,7 @@ def analyze():
     characteristicList.pop(0)
     characteristicList = [site] + characteristicList
     #Writing list to csv
-    with open('characteristics.csv', mode='w') as char_file:
+    with open('static/characteristics.csv', mode='w') as char_file:
         char_file = csv.writer(char_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         char_file.writerow(characteristicList)
 
