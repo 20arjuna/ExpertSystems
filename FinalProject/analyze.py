@@ -19,7 +19,25 @@ def analyze():
                 for element in row:
                     characteristicList.append(row[element])
     characteristicList.pop(0)
-    print(characteristicList)
+
+    #Sudo code
+    python.writeToCSV(characteristicList, 'characteristics.csv')
+    python.callJava('callJess.java')
+
+    #JAVA psuedo code
+    java.assert(dataFromCSV)
+    java.callJESS()
+
+    #JESS psuedo code
+    JESS.determineOutput()
+    JESS.sendOutputToJava(output)
+
+    #JAVA psuedo code
+    java.writeToCSV(output)
+
+    #python psuedo code
+    python.readFromCSV()
+    python.render_template('new HTML')
     return site
 
 if __name__ == "__main__":
