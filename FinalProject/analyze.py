@@ -33,7 +33,7 @@ def execute_java(java_file, stdin):
     cmd = ['java', java_class]
     proc = subprocess.Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
     stdout,stderr = proc.communicate(stdin)
-    print ('This was "' + stdout.decode() + '"')
+    print (stdout.decode())
 
 if __name__ == "__main__":
     app.run()
