@@ -1,7 +1,6 @@
 from flask import Flask,render_template, Response, request, redirect, url_for
-import csv
+import csv, subprocess, os.path
 from subprocess import STDOUT, PIPE
-import os.path
 
 app = Flask(__name__)
 

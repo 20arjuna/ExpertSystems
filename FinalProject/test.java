@@ -4,7 +4,7 @@ public class test
   public static void main (String [] args)
   {
     Scanner sc = new Scanner (System.in);
-    int var = sc.nextLine();
+    int var = sc.nextInt();
     System.out.println("Java says: " + var);
   }
 }
