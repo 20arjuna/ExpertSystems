@@ -1,5 +1,5 @@
 from flask import Flask,render_template, Response, request, redirect, url_for
-import csv, subprocess, os.path
+import csv, subprocess, os.path, json
 from subprocess import STDOUT, PIPE
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def analyze():
     characteristicList.pop(0)
 
     compile_java('test.java')
-    execute_java('test.java', [x.encode('utf-8') for x in characteristicList])
+    execute_java('test.java', json.dumps(characteristicList).encode())
     return site
 
 def compile_java(java_file):
