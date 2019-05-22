@@ -20,14 +20,9 @@ def analyze():
                 for element in row:
                     characteristicList.append(row[element])
     characteristicList.pop(0)
-    # characteristicList = [site] + characteristicList
-    # #Writing list to csv
-    # with open('static/characteristics.csv', mode='w') as char_file:
-    #     char_file = csv.writer(char_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    #     char_file.writerow(characteristicList)
 
     compile_java('test.java')
-    execute_java('test.java', 5)
+    execute_java('test.java', [x.encode('utf-8') for x in characteristicList])
     return site
 
 def compile_java(java_file):
@@ -38,7 +33,7 @@ def execute_java(java_file, stdin):
     cmd = ['java', java_class]
     proc = subprocess.Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
     stdout,stderr = proc.communicate(stdin)
-    print ('This was "' + stdout + '"')
+    print ('This was "' + stdout.decode() + '"')
 
 if __name__ == "__main__":
     app.run()
