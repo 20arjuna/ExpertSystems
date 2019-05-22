@@ -12,7 +12,7 @@ def initialize():
 def analyze():
     characteristicList = []
     site = request.form.get("url")
-    with open('static/data.csv') as csvfile:
+    with open('static/siteData.csv') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             if(row['Name'].find(site) != -1):
@@ -20,24 +20,7 @@ def analyze():
                     characteristicList.append(row[element])
     characteristicList.pop(0)
 
-    #Sudo code
-    python.writeToCSV(characteristicList, 'characteristics.csv')
-    python.callJava('callJess.java')
 
-    #JAVA psuedo code
-    java.assert(dataFromCSV)
-    java.callJESS()
-
-    #JESS psuedo code
-    JESS.determineOutput()
-    JESS.sendOutputToJava(output)
-
-    #JAVA psuedo code
-    java.writeToCSV(output)
-
-    #python psuedo code
-    python.readFromCSV()
-    python.render_template('new HTML')
     return site
 
 if __name__ == "__main__":
