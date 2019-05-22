@@ -41,6 +41,7 @@ def getPrivacyPolicy():
     return(privacy_policy)
 
 def scrapePrivacyPolicy(url):
+
     text_file = open("static/tos.txt", "w")
     text_file.write(articleText.getArticle(url))
 
