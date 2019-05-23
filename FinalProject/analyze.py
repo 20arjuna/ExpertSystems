@@ -26,7 +26,7 @@ def analyze():
     return site
 
 def compile_java(java_file):
-    subprocess.check_call(['javac', java_file])
+    subprocess.check_call(['javac -classpath ".:/Users/20arjuna/Desktop/Jess71p1/lib/jess.jar" ', java_file])
 
 def execute_java(java_file, stdin):
     java_class,ext = os.path.splitext(java_file)
