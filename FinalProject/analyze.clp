@@ -3,19 +3,20 @@
 
 (batch ExpertSystems/toolbox.clp)
 
-(defglobal ?*websiteName* = "")
 (defglobal ?*external-class* = 0)
 
 (deffunction play ()
-   (getInput)
+   (bind ?sitename (getInput))
+   (initialize)
+   ()
    (reset)
    (run)
    (return)
 )
 
 (deffunction getInput ()
-   (bind ?*websiteName* (ask "Enter a website name: "))
-   (return ?*websiteName*)
+   (bind ?sitename (ask "Enter a website name: "))
+   (return ?sitename)
 )
 
 (deffunction initialize ()
@@ -25,5 +26,6 @@
 
 (deffunction createPropertiesList (?sitename)
    (bind ?propertiesList (?*external-class* getProperties ?sitename))
-   
+   (return ?propertiesList)
+
 )
