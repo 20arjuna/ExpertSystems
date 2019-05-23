@@ -1,10 +1,10 @@
-Name,User online Activities,Contact, Unspecified Data,Cookies and Tracking Elements,Health,Demographic,IP Address,Computer Information,Financial,User Profile,Location,Opt-out Via contacting,Opt-out via service,Opt-in
+Name,User online Activities,Contact, Unspecified Data,Cookies and Tracking Elements,Health,Demographic,IP Address,Computer Information,Financial,User Profile,Location,Opt-out via contacting,Opt-out via service,Opt-in
 google.com,y,y,y,y,y,y,y,y,y,y,y,y,n,n
 facebook.com,y,y,y,y,n,y,y,y,y,y,y,n,n,n
 youtube.com,y,y,y,y,n,y,y,y,y,y,y,n,n,n
 twitter.com,y,y,y,y,n,y,y,y,y,y,y,n,y,n
 microsoft.com,y,y,y,y,n,n,y,y,n,y,y,y,n,n
-linkedin.com,y,y,y,y,n,y ,n,y,y,y,y,y,n,n
+linkedin.com,y,y,n,y,n,y ,n,y,y,y,y,y,n,n
 instagram.com,y,y,y,y,n,y,y,y,y,y,y,y,n,y
 wikipedia.org,y,y,y,y,n,y,n,y,n,y,y,n,n,n
 apple.com,y,y,y,y,n,n,y,y,n,y,n,n,y,n
@@ -20,7 +20,7 @@ pinterest.com,y,y,y,y,n,n,y,n,y,y,n,n,n,n
 play.google.com,y,y,y,y,n,n,y,n,n,y,n,y,y,n
 googletagmanager.com,y,y,y,y,n,n,y,n,n,y,n,y,n,n
 maps.google.com,y,y,y,y,n,n,n,n,n,y,y,n,n,n
-blogspot.com,y,n,y,y,n,n,y,n,,y,n,y,n,n
+blogspot.com,y,n,y,n,n,n,y,n,,y,n,y,n,n
 bit.ly,y,n,n,y,n,n,n,n,y,y,y,n,y,n
 yahoo.com,y,y,y,y,n,n,n,n,y,y,y,y,y,n
 amazon.com,y,y,y,y,n,n,n,n,n,y,n,y,n,n
@@ -114,6 +114,6 @@ cnet.com,y,y,n,y,n,n,y,y,n,y,y,n,n,n
 businessinsider.com,y,y,n,y,n,n,y,y,n,y,y,n,n,n
 hp.com,y,y,y,y,n,n,y,n,y,y,n,n,y,n
 eventbrite.com,y,y,y,y,n,n,y,y,y,y,y,n,n,n
-zoho.com,y,y,n,n,n,n,y,n,n,y,y,n,y,y
-duckduckgo.com,n,n,n,y,n,n,n,n,n,y,n,n,n,n
+zoho.com,y,y,n,n,n,n,n,n,n,y,n,n,y,y
+duckduckgo.com,n,n,n,y,n,n,n,n,n,n,n,n,n,n
 ,,,,,,,,,,,,,,,
