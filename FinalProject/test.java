@@ -11,6 +11,16 @@ public class test
 
     List<String> policies = new ArrayList<String>(Arrays.asList(policyString.split(",")));
 
+    //Jess Stuff
+    Rete engine = new Rete();
+    try{
+      Deffacts fact = new Deffacts("p", policies.get(0), engine);
+      engine.addDeffacts(fact);
+    }
+    catch (JessException ex) {
+        System.err.println(ex);
+    }
+
 
   }
 }
