@@ -1,6 +1,6 @@
 import java.util.*;
 import jess.*;
-public class test
+public class callJess
 {
   public static void main (String [] args)
   {
@@ -16,6 +16,7 @@ public class test
     try{
       Deffacts fact = new Deffacts("p", policies.get(0), engine);
       engine.addDeffacts(fact);
+      engine.batch("Jess/testCode.clp");
     }
     catch (JessException ex) {
         System.err.println(ex);
