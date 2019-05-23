@@ -10,7 +10,9 @@
    (initialize)
    (bind ?propertiesList (createPropertiesList ?sitename))
    (printout t ?propertiesList crlf)
-   (reset)
+   (foreach ?property ?propertiesList
+      (assert (random ?property))
+   )
    (run)
    (return)
 )
