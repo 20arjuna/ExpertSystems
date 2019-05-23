@@ -8,15 +8,15 @@
 (deffunction play ()
    (bind ?sitename (getInput))
    (initialize)
-   ()
+   (bind ?propertiesList (createPropertiesList ?sitename))
+   (printout t ?propertiesList crlf)
    (reset)
    (run)
    (return)
 )
 
 (deffunction getInput ()
-   (bind ?sitename (ask "Enter a website name: "))
-   (return ?sitename)
+   (return (ask "Enter a website name: "))
 )
 
 (deffunction initialize ()
@@ -24,8 +24,6 @@
       (return)
 )
 
-(deffunction createPropertiesList (?sitename)
-   (bind ?propertiesList (?*external-class* getProperties ?sitename))
-   (return ?propertiesList)
-
+(deffunction createPropertiesList (?site)
+   (return (?*external-class* getProperties ?site))
 )
