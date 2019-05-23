@@ -21,8 +21,8 @@ def analyze():
                     characteristicList.append(row[element])
     characteristicList.pop(0)
 
-    compile_java('test.java')
-    execute_java('test.java', json.dumps(characteristicList).encode())
+    compile_java('callJess.java')
+    execute_java('callJess.java', json.dumps(characteristicList).encode())
     return site
 
 def compile_java(java_file):

@@ -1,4 +1,4 @@
-(clear)
+xxq(clear)
 (reset)
 (batch ExpertSystems/toolbox.clp)
 
