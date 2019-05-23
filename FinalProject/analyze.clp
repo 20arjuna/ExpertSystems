@@ -10,8 +10,17 @@
    (initialize)
    (bind ?propertiesList (createPropertiesList ?sitename))
    (printout t ?propertiesList crlf)
-   (foreach ?property ?propertiesList
-      (assert (random ?property))
+
+   (bind ?count 1)
+
+   (bind ?rawProperties (create$ "User online Activities" "Contact" "Unspecified Data"
+                                 "Cookies and Tracking Elements" "Health" "Demographic"
+                                 "IP Address" "Computer Information" "Financial" "User Profile"
+                                 "Location" "Opt-out Via contacting" "Opt-out via service" "Opt-in"))
+
+   (while (< ?count 14)
+      (assert(fact (nth$ ?count ?rawProperties) (nth$ ?count ?propertiesList)))
+      (++ ?count)
    )
    (run)
    (return)
