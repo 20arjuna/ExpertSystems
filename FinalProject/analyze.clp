@@ -44,7 +44,7 @@
    (printline "")
 
    (printline "Enter a website name and I'll tell you what data the website collects, and rates the website on a scale of 1-5")
-
+   (printline "Do not include 'www' or 'http(s)'")
    (printline "")
 
    (printline "1 - Awful. This site's privacy policy raises serious concerns.")
@@ -249,7 +249,8 @@
 )
 
 /*
-**
+** The explain rule declares a high salience (highest of all rules) and prints
+** out the data which was collected to the console.
 **
 */
 (defrule explain
