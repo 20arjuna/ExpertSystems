@@ -42,7 +42,7 @@
 (deffunction analyze ()
    (reset)
    (printline "")
-
+   (printline "*****************************************************************")
    (printline "Enter a website name and I'll tell you what data the website collects, and rates the website on a scale of 1-5")
    (printline "Do not include 'www' or 'http(s)'")
    (printline "")
