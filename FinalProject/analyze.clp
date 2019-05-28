@@ -1,3 +1,22 @@
+/*
+** Created: May 2, 2019
+** Last Modified: May 28, 2019
+**
+** Author(s): Arjun Akkiraju,
+**            with assistance from: Dr. Eric R. Nelson
+**
+** This file takes in a name of a website from the user and analyzes
+** the given website's privacy policy. It interfaces with java to read relevant
+** information regarding the user's website from a csv file and asserts the given
+** facts into the machine's working memory. The file then uses forward chained rules
+** to analyze the privacy policy based on the asserted facts and makes a determnation
+** based on how fair the website is to users regarding privacy. It rates the site on a
+** 1 to 5 scale.
+**
+** 1. 
+**
+*/
+
 (clear)
 (reset)
 
