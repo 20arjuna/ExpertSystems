@@ -27,7 +27,7 @@ amazon.com,y,y,y,y,n,n,n,n,n,y,n,y,n,n
 player.vimeo.com,y,n,y,y,n,n,y,n,y,y,n,y,n,n
 wordpress.org,y,n,y,y,n,n,n,n,n,y,y,n,n,n
 docs.google.com,y,n,y,y,n,n,y,n,n,y,y,n,n,n
-github.com,y,n,y,y,n,n,y,n,y,y,y,n,n,n
+cnn.com,y,n,y,y,n,n,y,n,y,y,y,n,n,n
 tumblr.com,y,n,y,y,n,n,y,n,y,y,n,y,,n
 godaddy.com,y,n,y,y,n,n,y,n,n,y,n,y,y,n
 mozilla.org,y,n,y,y,n,n,y,n,n,y,n,n,y,n
@@ -48,7 +48,7 @@ t.co,y,n,y,y,n,n,y,n,y,y,y,y,n,y
 sites.google.com,y,n,y,y,n,n,y,n,y,y,y,y,y,n
 nih.gov,y,n,y,y,n,n,y,n,y,y,y,y,n,n
 amazonaws.com,y,y,y,y,n,n,y,n,n,y,y,n,y,y
-cnn.com,y,y, ,y,n,n,y,n,n,y,y,y,n,y
+github.com,y,y, ,y,n,n,y,n,n,y,y,y,n,y
 bbc.co.uk,y,y,y,y,n,n,y,n,y,y,y,y,y,n
 theguardian.com,y,y,y,y,n,n,y,n,y,y,n,y,y,n
 forbes.com,y,n,n,y,n,n,y,y,y,y,n,y,y,n
