@@ -13,7 +13,13 @@
 ** based on how fair the website is to users regarding privacy. It rates the site on a
 ** 1 to 5 scale.
 **
-** 1. 
+** 1 - Awful. This site's privacy policy raises serious concerns.
+** 2 - Bad. This site's privacy policy has some important issues that require your attention.
+** 3 - Average. This site's privacy policy is ok but some parts need your attention.
+** 4 - Good. This site's privacy policy are fair but could be improved.
+** 5 - Elite. This site's privacy policy is excellent and are very fair towards the user.
+**
+** The file then alerts the user as to what information the site is tracking.
 **
 */
 
@@ -33,7 +39,7 @@
 
    (printline "")
 
-   (printline "1 - Awful. This site's privacy policy raises serious concerns,")
+   (printline "1 - Awful. This site's privacy policy raises serious concerns.")
    (printline "2 - Bad. This site's privacy policy has some important issues that require your attention.")
    (printline "3 - Average. This site's privacy policy is ok but some parts need your attention.")
    (printline "4 - Good. This site's privacy policy are fair but could be improved.")
