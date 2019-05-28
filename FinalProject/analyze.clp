@@ -28,9 +28,17 @@
 
 (batch ExpertSystems/toolbox.clp)
 
-(defglobal ?*external-class* = 0)
-(defglobal ?*site* = "")
+(defglobal ?*external-class* = 0) ;Global variable for the external java class
+                                  ;that Jess interfaces with
+(defglobal ?*site* = "")          ;Global variable which stores the user's input
 
+/*
+** The analyze function prints the instructions to the program to the user. The fucntion
+** then uses a while loop and java interfacing to validate the user's input using regular
+** expressions. The function then uses another while loop and java interfacing to assert the facts
+** present in the csv file into the machine's working memory.
+**
+*/
 (deffunction analyze ()
    (reset)
    (printline "")
@@ -63,6 +71,7 @@
                                  "IP Address" "Computer Information" "Financial" "User Profile"
                                  "Location" "Opt-out via contacting" "Opt-out via service" "Opt-in"))
    (bind ?lenRawProperties 15)
+
    (while (< ?count ?lenRawProperties)
       (assert(fact (nth$ ?count ?rawProperties) (nth$ ?count ?propertiesList)))
       (++ ?count)
@@ -71,21 +80,42 @@
    (return)
 )
 
+/*
+** Gets the input from the user and binds it to the global variable.
+**
+** Returns: the input entered from the user
+*/
 (deffunction getInput ()
    (bind ?*site* (ask "Enter a website name: "))
    (return ?*site*)
 )
 
+/*
+** Initializes the external java class being interfaced with throughout
+** this code file.
+*/
 (deffunction initialize ()
       (bind ?*external-class* (new csvTest))
       (return)
 )
 
-
+/*
+** Interfaces with java to get the key properties from the CSV file
+** based on the website the user inputted.
+*/
 (deffunction createPropertiesList (?site)
    (return (?*external-class* getProperties ?site))
 )
 
+/*
+** Creates a list for the data a site collects based on the user's input
+** for the site name. The function defines some variables before entering a
+** while loop and iterating through the properties the site collects (info comes from csv file)
+** As it iterates through the loop, the function builds a list of this and returns it.
+**
+** Returns: The list of properties the website collects
+**
+*/
 (deffunction getSiteCollections ()
    (bind ?rawProperties (create$ "User online Activities" "Contact" "Unspecified Data"
                               "Cookies and Tracking Elements" "Health" "Demographic"
@@ -94,7 +124,8 @@
    (bind ?letterList (createPropertiesList ?*site*))
    (bind ?privacyList (create$))
    (bind ?count 1)
-   (while (< ?count 12)
+   (bind ?lenRawPropertiesExceptLastTwo 12)
+   (while (< ?count ?lenRawPropertiesExceptLastTwo)
       (if (= (nth$ ?count ?letterList) "y") then
          (bind ?privacyList (create$ ?privacyList (nth$ ?count ?rawProperties)))
       )
@@ -103,6 +134,11 @@
    (return ?privacyList)
 )
 
+/*
+** The following rules are forward chained rules which use the facts asserted
+** in the working memory to determine which category the site fits into.
+**
+*/
 (defrule eliteNoTracking
    (fact "User online Activities" "n")
    (fact "User Profile" "n")
@@ -186,11 +222,11 @@
 /*
 ** The alldone rule fires after a guess has been made. The rule
 ** declares a high salience and looks for the (solved) pattern to
-** be set to yes before thanking the user for playing and telling them
-** how they can play again.
+** be set to yes before thanking the user telling them
+** how to rerun the program.
 */
 
-(defrule alldone "Concludes the game after a guess has been made."
+(defrule alldone "Concludes the program after a rating has been given."
    (declare (salience 100))
    (solved y)
 =>
@@ -201,7 +237,8 @@
 /*
 ** The giveup rule fires after a guess has been made. The rule
 ** declares a low salience and looks for the (solved) pattern to
-** be set to no before giving up and telling them how they can play again.
+** be set to no before alerting the user that it couldn't find the website
+** and telling them how they can rerun the program.
 */
 (defrule giveup "Concludes the game after giving up."
    (declare (salience -100))
@@ -211,6 +248,10 @@
    (printline "Sorry, I couldn't find the details of your website. Enter (analyze) to rerun the program.")
 )
 
+/*
+**
+**
+*/
 (defrule explain
    (declare (salience 200))
    (explain y)
