@@ -57,7 +57,7 @@
 
    (bind ?sitename (getInput))
    (initialize)
-   (while (= (?*external-class* validateInput ?sitename) FALSE)
+   (while (= (call ?*external-class* validateInput ?sitename) FALSE)
       (printline "Input is not a valid website name!")
       (bind ?sitename (getInput))
    )
@@ -104,7 +104,7 @@
 ** based on the website the user inputted.
 */
 (deffunction createPropertiesList (?site)
-   (return (?*external-class* getProperties ?site))
+   (return (call ?*external-class* getProperties ?site))
 )
 
 /*
