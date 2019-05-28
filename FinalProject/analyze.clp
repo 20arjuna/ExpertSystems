@@ -95,7 +95,7 @@
 ** this code file.
 */
 (deffunction initialize ()
-      (bind ?*external-class* (new csvTest))
+      (bind ?*external-class* (new JavaMethods))
       (return)
 )
 
