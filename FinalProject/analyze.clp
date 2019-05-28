@@ -184,6 +184,7 @@
 )
 
 (defrule bad
+  (fact "IP Address" "n")
   (fact "User online Activities" "y")
   (fact "User Profile" "y")
   (fact "Opt-out via contacting" "n")
@@ -197,6 +198,7 @@
 (defrule badPersonalInfo
    (fact "IP Address" "y")
    (fact "Computer Information" "y")
+   (fact "User online Activities" "n")
    (fact "Opt-out via contacting" "n")
    =>
    (printline "")
